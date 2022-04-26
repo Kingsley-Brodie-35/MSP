@@ -6,29 +6,36 @@
         <meta name="Keywords" content="JS, CSS, HTML" />
         <meta name="author" content="Group 8" />
         <title>Search Patient</title>
-        <link href="styles/style.css" rel="stylesheet"/>
+        <link href="style.css" rel="stylesheet"/>
     </head>
     <body>   
-        <header>
-            <h1>Search Patient Data</h1>
-            <nav>
-                <a href="home.html">Home</a>
-                <a href="edit.html">Edit Patients</a> 
-                <a href="create.html">Add Patients</a>
-                <a href="search.html">Search Patients</a>
-            </nav>
-        </header>
-        <div>
-            <!-- body contents -->
-            <p>
-                Search by:
-                <label>First Name</label>
-                <input type="text" name= "firstName" id="firstName" size="15" required=""/>
-                <label>Last Name</label>
-                <input type="text" name= "lastName" id="lastName" size="15" required="required"/>
-                <input type="submit" value="Search"/>
-                <input type="reset" value="Reset Form" id="reset"/>
-            </p>            
+        <div class="container">
+            <header>
+                <!--<h1>Home</h1>-->
+                <div class = "navbar">
+                    <img src="images/Untitled.png" class="logo">
+                    <nav>
+                        <ul>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="edit.html">Edit Patients</a></li>
+                            <li><a href="create.html">Add Patients</a></li>
+                            <li><a href="search.html">Search Patients</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <div>
+                <!-- body contents -->
+                <p>
+                    Search by:
+                    <label>First Name</label>
+                    <input type="text" name= "firstName" id="firstName" size="15" required=""/>
+                    <label>Last Name</label>
+                    <input type="text" name= "lastName" id="lastName" size="15" required="required"/>
+                    <input type="submit" value="Search"/>
+                    <input type="reset" value="Reset Form" id="reset"/>
+                </p>            
+            </div>
         </div>
     </body>
 </html>

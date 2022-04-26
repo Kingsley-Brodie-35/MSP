@@ -6,58 +6,66 @@
         <meta name="Keywords" content="JS, CSS, HTML" />
         <meta name="author" content="Group 8" />
         <title>Edit Patient</title>
-        <link href="styles/style.css" rel="stylesheet"/>
+        <link href="style.css" rel="stylesheet"/>
     </head>
-    <body>   
-        <header>
-            <h1>Edit Patient Data</h1>
-            <nav>
-                <a href="home.html">Home</a>
-                <a href="edit.html">Edit Patients</a> 
-                <a href="create.html">Add Patients</a>
-                <a href="search.html">Search Patients</a> 
-            </nav>
-        </header>
-        <div>
-            <!-- body contents -->
-            <!-- body contents -->
-            <form id="regForm" method="post" action="" novalidate="novalidate">
-                <fieldset>
-                    <legend>Patient Details</legend>
-                    <p>
-                        <!-- textInput first & last name -->
-                        <label for="firstName">First Name</label>
-                        <input type="text" name= "firstName" id="firstName" size="15" required="required"/>
-                        <label for="lastName">Last Name</label>
-                        <input type="text" name= "lastName" id="lastName" size="15" required="required"/>
-                    </p>
-                    <p>
-                        <!-- textInput phone number -->
-                        <label for="phoneNum">Phone Number</label>
-                        <input type="text" name="phoneNum" id="phoneNum" pattern="[0-9]{10}" placeholder="1234567890" required="required"/>
-                    </p>
-                    <p>
-                        <!-- textInput email -->
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" required="required"/>
-                    </p>                    
-                    <p>
-                        <!-- Gender-->
-                        Gender&#58;
-                        <label for="Male">Male</label> 
-                        <input type="radio" id="Male" name="Male" value="M" required="required"/>
-                        <label for="Female">Female</label> 
-                        <input type="radio" id="Female" name="Female" value="F"/>                        
-                    </p>
-                    <p>
-                        <!-- date of birth -->
-                        <label for="DOB">DOB</label>
-                        <input type="date" name="DOB" id="DOB"/>
-                    </p> 
-                </fieldset><br>
-                <input type="submit" value="Edit"/>
-                <input type="reset" value="Reset Form" id="reset"/>
-            </form>
+    <body>
+        <div class="container">
+            <header>
+                <!--<h1>Home</h1>-->
+                <div class = "navbar">
+                    <img src="images/Untitled.png" class="logo">
+                    <nav>
+                        <ul>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="edit.html">Edit Patients</a></li>
+                            <li><a href="create.html">Add Patients</a></li>
+                            <li><a href="search.html">Search Patients</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <div>
+                <!-- body contents -->
+                <!-- body contents -->
+                <form id="regForm" method="post" action="" novalidate="novalidate">
+                    <fieldset>
+                        <legend>Patient Details</legend>
+                        <p>
+                            <!-- textInput first & last name -->
+                            <label for="firstName">First Name</label>
+                            <input type="text" name= "firstName" id="firstName" size="15" required="required"/>
+                            <br>
+                            <label for="lastName">Last Name</label>
+                            <input type="text" name= "lastName" id="lastName" size="15" required="required"/>
+                        </p>
+                        <p>
+                            <!-- textInput phone number -->
+                            <label for="phoneNum">Phone Number</label>
+                            <input type="text" name="phoneNum" id="phoneNum" pattern="[0-9]{8}" placeholder="+61" required="required"/>
+                        </p>
+                        <p>
+                            <!-- textInput email -->
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" required="required"/>
+                        </p>                    
+                        <p>
+                            <!-- Gender-->
+                            Gender&#58;
+                            <label for="Male">Male</label> 
+                            <input type="radio" id="Male" name="Male" value="M" required="required"/>
+                            <label for="Female">Female</label> 
+                            <input type="radio" id="Female" name="Female" value="F"/>                        
+                        </p>
+                        <p>
+                            <!-- date of birth -->
+                            <label for="DOB">DOB</label>
+                            <input type="date" name="DOB" id="DOB"/>
+                        </p> 
+                    </fieldset><br>
+                    <input type="submit" value="Edit"/>
+                    <input type="reset" value="Reset Form" id="reset"/>
+                </form>
+            </div>
         </div>
     </body>
 </html>
