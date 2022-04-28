@@ -9,10 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HospRec.Models;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using MySql.Data.MySqlClient;
 
 namespace HospRec
@@ -29,18 +26,8 @@ namespace HospRec
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Add(new ServiceDescriptor(typeof(DbClass), new DbClass(Configuration.GetConnectionString("DefaultConnection"))));
             services.AddRazorPages();
-            // Install-Package MySql.EntityFrameworkCore -Version 5.0.8 
-            MySqlConnectionStringBuilder conn = new MySqlConnectionStringBuilder()
-            {
-                Database = "mydb",
-                UserID = "HospRecAdmin",
-                Password = "MSPteam123",
-                Server = "hosprecdb.mysql.database.azure.com"
-            };
-            services.AddDbContext<AppDbContext>(
-                opt => opt.UseMySQL(conn.ConnectionString)
-            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

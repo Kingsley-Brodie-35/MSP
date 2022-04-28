@@ -9,7 +9,7 @@ namespace HospRec.Models
     {
         private int _doctorID;
         private int _hospID;
-        private string _phNum;
+        private string _ph;
         private string _email;
         private string _firstName;
         private char _gender;
