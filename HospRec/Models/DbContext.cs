@@ -26,7 +26,7 @@ namespace HospRec.Models
             using (MySqlConnection conn = getConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand($"SELECT * FROM patient WHERE FirstName={firstName}", conn);
+                MySqlCommand cmd = new MySqlCommand($"SELECT * FROM patient WHERE FirstName='{firstName}'", conn);
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())

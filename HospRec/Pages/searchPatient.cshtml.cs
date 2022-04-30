@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using HospRec.Models;
+using MySql.Data.MySqlClient;
 
 namespace HospRec.Pages
 {
     public class searchPatientModel : PageModel
     {
         private List<Patient> _patients = new List<Patient>();
-        private DbClass _db = new DbClass("server=hosprecdb.mysql.database.azure.com;port=3306;database=hosprecdb;user=HopspRecAdmin;password=MSPteam123");
+        private DbClass _db = new DbClass("server=hosprecdb.mysql.database.azure.com;UserID=HospRecAdmin;Password=MSPteam123;Database=hosprecdb;");
 
         [BindProperty]
         public string firstName { get; set; } 
@@ -25,7 +26,7 @@ namespace HospRec.Pages
         public IActionResult OnPost()
         {
             Query();
-            return base.Content("<div>Hello</div>", "text/html");
+            return Page();
         }
 
         public void Query()
