@@ -71,16 +71,15 @@ body {*/
 
 
 /*Our css*/
-/* 
+
 filename: styles
 author: Group 8
 created: 28/03/21
 last modified: 28/03/21
 description: style.css
-*/
+
 * {
     font-family: sans-serif;
-    color: #ffffff;
 }
 
 body, html {
@@ -128,9 +127,10 @@ nav ul li {
     margin: 0;
     padding-left: 16px;
 }
-
+/*
 fieldset {
     border: 1px solid rgb(255,232,57);
     width: 400px;
     margin: auto;
 }
+*/
