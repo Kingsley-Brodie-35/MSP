@@ -13,6 +13,13 @@ namespace HospRec.Pages
     {
         private List<Patient> _patients = new List<Patient>();
         private DbClass _db = new DbClass("server=hosprecdb.mysql.database.azure.com;UserID=HospRecAdmin;Password=MSPteam123;Database=hosprecdb;");
+        public List<Patient> Patients
+        {
+            get
+            {
+                return _patients;
+            }
+        }
 
         [BindProperty]
         public string firstName { get; set; } 

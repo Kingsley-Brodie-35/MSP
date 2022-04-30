@@ -31,7 +31,7 @@ namespace HospRec.Models
                 {
                     while (reader.Read())
                     {
-                        Patients.Add(new Patient(reader.GetInt32("Patient_ID"), reader.GetInt32("PhoneNumber"), reader.GetString("EmailAddress"), reader.GetString("FirstName"), reader.GetChar("Gender"), reader.GetString("DOB")){  });
+                        Patients.Add(new Patient(reader.GetInt32("Patient_ID"), reader.GetInt32("PhoneNumber"), reader.GetString("EmailAddress"), reader.GetString("FirstName"), reader.GetString("LastName"),reader.GetChar("Gender"), reader.GetString("DOB")){  });
                     }
                 }
             }
