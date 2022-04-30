@@ -31,7 +31,7 @@ namespace HospRec.Pages
 
         public void Query()
         {
-            _patients = _db.GetPatients(firstName);           
+            _patients = _db.GetPatients(firstName);
         }
     }
 }
