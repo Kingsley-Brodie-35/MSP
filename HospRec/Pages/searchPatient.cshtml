@@ -28,8 +28,8 @@
             </form>
             <div>
                 <div class="grid_container_parent">
-                    @foreach (var p in Model.Patients)
-                     {
+                    @foreach (var p in Model.Patients.PatientList) 
+                    {
                         <div class="grid_container_child">
                             <div class="grid_item01">@p.PatientID</div>
                             <div grid_item01="grid_item02">@p.FirstName</div>

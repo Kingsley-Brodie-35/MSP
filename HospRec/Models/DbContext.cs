@@ -16,26 +16,9 @@ namespace HospRec.Models
             this.ConnectionString = connectionString;
         }
         //methods
-        private MySqlConnection getConnection() {
+        protected  MySqlConnection getConnection() {
             return new MySqlConnection(ConnectionString);
         }
-        public List<Patient> GetPatients(string firstName)
-        {
-            List<Patient> Patients = new List<Patient>();
-
-            using (MySqlConnection conn = getConnection())
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand($"SELECT * FROM patient WHERE FirstName='{firstName}'", conn);
-                using (MySqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Patients.Add(new Patient(reader.GetInt32("Patient_ID"), reader.GetInt32("PhoneNumber"), reader.GetString("EmailAddress"), reader.GetString("FirstName"), reader.GetString("LastName"),reader.GetChar("Gender"), reader.GetString("DOB")){  });
-                    }
-                }
-            }
-            return Patients;
-        }
     }
+    
 }

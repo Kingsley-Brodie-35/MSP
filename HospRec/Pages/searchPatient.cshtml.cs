@@ -11,13 +11,12 @@ namespace HospRec.Pages
 {
     public class searchPatientModel : PageModel
     {
-        private List<Patient> _patients = new List<Patient>();
-        private DbClass _db = new DbClass("server=hosprecdb.mysql.database.azure.com;UserID=HospRecAdmin;Password=MSPteam123;Database=hosprecdb;");
-        public List<Patient> Patients
+        private Patients _p = new Patients("server=hosprecdb.mysql.database.azure.com;UserID=HospRecAdmin;Password=MSPteam123;Database=hosprecdb;");
+        public Patients Patients
         {
             get
             {
-                return _patients;
+                return _p;
             }
         }
 
@@ -38,7 +37,14 @@ namespace HospRec.Pages
 
         public void Query()
         {
-            _patients = _db.GetPatients(firstName);
+            Patients.GetPatients(firstName);
         }
+
+
+
+
+
+
+
     }
 }

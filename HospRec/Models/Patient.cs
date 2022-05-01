@@ -16,7 +16,7 @@ namespace HospRec.Models
         private string _lastName;
         private char _gender;
         private string _dob;
-        private DbClass _db;
+        //constructor
         public int PatientID
         {
             get
@@ -36,14 +36,6 @@ namespace HospRec.Models
             get
             {
                 return _lastName;
-            }
-        }
-        //properties
-        public DbClass Db
-        {
-            get
-            {
-                return _db;
             }
         }
         //constructor
