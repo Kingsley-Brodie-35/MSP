@@ -13,7 +13,6 @@
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
         <div>
             <!-- body contents -->
             <form id="regForm" method="post" action="" novalidate="novalidate">
@@ -23,7 +22,8 @@
                         <!-- textInput first & last name -->
                         <label for="firstName">First Name</label>
                         <input type="text" name="firstName" id="firstName" size="15" required="required" />
-                        <br>
+                    </p>
+                    <p>    
                         <label for="lastName">Last Name</label>
                         <input type="text" name="lastName" id="lastName" size="15" required="required" />
                     </p>
@@ -39,22 +39,24 @@
                     </p>
                     <p>
                         <!-- Gender-->
-                        Gender&#58;
-                        <label for="Male">Male</label>
-                        <input type="radio" id="Male" name="Male" value="M" required="required" />
-                        <label for="Female">Female</label>
-                        <input type="radio" id="Female" name="Female" value="F" />
-                    </p>
+                        
+                        <label for="gender">Choose your gender:</label>
+                        <select name="gender" id="gender">
+                            <option value="">-Select Gender-</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                     </p>
                     <p>
                         <!-- date of birth -->
                         <label for="DOB">DOB</label>
                         <input type="date" name="DOB" id="DOB" />
                     </p>
                 </fieldset><br>
-                <input type="submit" value="Edit" />
+                <input type="submit" value="Edit Entry" />
                 <input type="reset" value="Reset Form" id="reset" />
             </form>
         </div>
-    </div>
 </body>
 </html>

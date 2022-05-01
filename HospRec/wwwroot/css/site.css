@@ -71,13 +71,13 @@ body {*/
 
 
 /*Our css*/
-
+/*
 filename: styles
 author: Group 8
 created: 28/03/21
 last modified: 28/03/21
 description: style.css
-
+*/
 * {
     font-family: sans-serif;
 }
@@ -92,88 +92,49 @@ h1 {
     margin: 0;
 }
 
-.logo {
-    width: 160px;
-    cursor: pointer;
-    padding-left: 15px;
-}
-
-.container {
-    height: 100%;
-    width: 100%;
-    background-image: url(images/background.jpg);
-    background-position: center;
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-}
-
 .navbar {
     width: 100%;
     height: 15vh;
     margin: auto;
-    display: flex;
-    align-items: center;
+    background: #dfe3ee;
 }
-
 
 nav {
     flex: 1;
 }
 
 nav ul li {
-    display: inline-block;
+    display: inline;
     list-style: none;
-    margin: 0;
-    padding-left: 16px;
+    margin: 0 auto;
+    padding: 8px 16px;
+    background-color: #f7f7f7;
 }
 
 form {
-    display: grid;
+    margin-top: 2em;
     padding: 1em;
-    background: #b8d8be;
+    background: #dfe3ee;
     border: 1px solid #c1c1c1;
-    margin: 2rem auto 0 auto;
-    max-width: 700px;
-    padding: 1em;
-}
-
-form input {
-    background: #fff;
-    border: 1px solid #9c9c9c;
-}
-
-form button {
-    background: lightgrey;
-    padding: 0.7em;
-    width: 100%;
-    border: 0;
+    overflow: hidden;
 }
 
 label {
-    padding: 0.5em 0.5em 0.5em 0;
+    width: 350px;
+    display: inline-block
 }
 
-input:focus {
-    outline: 3px solid gold;
+input[type=submit], input[type=reset] {
+    background-color: #3b5998;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 150px;
+    padding:2px 2px 2px 2px;
 }
 
-@media (min-width: 400px) {
-    form {
-        grid-template-columns: 200px 1fr;
-        gap: 16px;
-    }
 
-    label {
-        text-align: right;
-        grid-column: 1 / 2;
-    }
-
-    input,
-    button {
-        grid-column: 2 / 3;
-    }
-}
 /*
 fieldset {
     border: 1px solid rgb(255,232,57);
