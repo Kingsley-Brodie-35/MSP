@@ -44,6 +44,7 @@ namespace HospRec
                 app.UseHsts();
             }
 
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
