@@ -19,7 +19,6 @@ namespace HospRec.Pages
                 return _p;
             }
         }
-
         [BindProperty]
         public string firstName { get; set; } 
         [BindProperty]
@@ -39,12 +38,5 @@ namespace HospRec.Pages
         {
             Patients.GetPatients(firstName);
         }
-
-
-
-
-
-
-
     }
 }
