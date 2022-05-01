@@ -22,7 +22,9 @@
                     <p>
                         <!-- textInput first & last name -->
                         <label for="firstName">First Name</label>
-                        <input type="text" name="firstName" id="firstName" size="15" required="required" />
+                        <input type="text" name="firstName" id="firstName" size="15" required="required" />                        
+                    </p>
+                    <p>
                         <label for="lastName">Last Name</label>
                         <input type="text" name="lastName" id="lastName" size="15" required="required" />
                     </p>
@@ -38,12 +40,14 @@
                     </p>
                     <p>
                         <!-- Gender-->
-                        Gender&#58;
-                        <label for="Male">Male</label>
-                        <input type="radio" id="Male" name="Male" value="M" required="required" />
-                        <label for="Female">Female</label>
-                        <input type="radio" id="Female" name="Female" value="F" />
-                    </p>
+                        <label for="gender">Choose your gender:</label>
+                        <select name="gender" id="gender">
+                            <option value="">-Select Gender-</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="O">Other</option>
+                        </select>
+                        </p>
                     <p>
                         <!-- date of birth -->
                         <label for="DOB">DOB</label>
