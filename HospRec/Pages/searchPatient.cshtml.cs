@@ -20,7 +20,7 @@ namespace HospRec.Pages
             }
         }
         [BindProperty]
-        public string firstName { get; set; } 
+        public string firstName { get; set; }
         [BindProperty]
         public string lastName { get; set; }
         
@@ -37,7 +37,6 @@ namespace HospRec.Pages
         public void Query()
         {
             Patients.GetPatients(firstName);
-            // hello
         }
     }
 }

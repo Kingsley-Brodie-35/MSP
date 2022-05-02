@@ -13,18 +13,18 @@
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
         <div>
             <!-- body contents -->
             <form id="regForm" method="post" action="" novalidate="novalidate">
                 <fieldset>
                     <legend>Patient Details</legend>
                     <p>
-                        <!-- textInput first & last name -->
+                        <!-- textInput first name -->
                         <label for="firstName">First Name</label>
                         <input type="text" name="firstName" id="firstName" size="15" required="required" />                        
                     </p>
                     <p>
+                        <!-- textInput last name -->
                         <label for="lastName">Last Name</label>
                         <input type="text" name="lastName" id="lastName" size="15" required="required" />
                     </p>
@@ -47,7 +47,7 @@
                             <option value="F">Female</option>
                             <option value="O">Other</option>
                         </select>
-                        </p>
+                    </p>
                     <p>
                         <!-- date of birth -->
                         <label for="DOB">DOB</label>
@@ -58,6 +58,5 @@
                 <input type="reset" value="Reset Form" id="reset" />
             </form>
         </div>
-    </div>
 </body>
 </html>

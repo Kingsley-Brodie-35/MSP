@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using HospRec;
+﻿using MySql.Data.MySqlClient;
 
 namespace HospRec.Models
 {
-    public class Patient
+    public class Patient : DbClass
     {   
         //fields
         private int _patientID;
@@ -38,8 +34,36 @@ namespace HospRec.Models
                 return _lastName;
             }
         }
+        public int PhNumber
+        {
+            get
+            {
+                return _ph;
+            }
+        }
+        public char Gender
+        {
+            get
+            {
+                return _gender;
+            }
+        }
+        public string DOB
+        {
+            get
+            {
+                return _dob;
+            }
+        }
+        public string Email
+        {
+            get
+            {
+                return _email;
+            }
+        }
         //constructor
-        public Patient(int id, int ph, string email, string firstName, string lastName, char gender, string dob)
+        public Patient(int id, int ph, string email, string firstName, string lastName, char gender, string dob) : base("server=hosprecdb.mysql.database.azure.com;UserID=HospRecAdmin;Password=MSPteam123;Database=hosprecdb;")
         {
             _patientID = id;
             _ph = ph;
@@ -49,6 +73,24 @@ namespace HospRec.Models
             _gender = gender;
             _dob = dob;
         }
-        public Patient() { }
+        public Patient() : base("server=hosprecdb.mysql.database.azure.com;UserID=HospRecAdmin;Password=MSPteam123;Database=hosprecdb;") { }
+
+        public Patient GetPatientByID(int id)
+        {
+            Patient p = new Patient();
+            using (MySqlConnection conn = this.getConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"SELECT * FROM patient WHERE Patient_ID={id}", conn);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                       p = new Patient(reader.GetInt32("Patient_ID"), reader.GetInt32("PhoneNumber"), reader.GetString("EmailAddress"), reader.GetString("FirstName"), reader.GetString("LastName"), reader.GetChar("Gender"), reader.GetString("DOB")) { };
+                    }
+                }
+            }
+            return p;
+        }
     }
 }

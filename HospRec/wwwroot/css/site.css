@@ -1,87 +1,7 @@
-/*Generated css*/
 
-/*a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}*/
-
-/* Provide sufficient contrast against white background */
-/*a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}*/
-
-/* Sticky footer styles
--------------------------------------------------- */
-/*html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}*/
-
-/* Sticky footer styles
--------------------------------------------------- */
-/*html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {*/
-  /* Margin bottom by footer height */
-  /*margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;*/ /* Vertically center the text there */
-/*}*/
-
-
-/*Our css*/
-/*
-filename: styles
-author: Group 8
-created: 28/03/21
-last modified: 28/03/21
-description: style.css
-*/
 * {
     font-family: sans-serif;
 }
-
 body, html {
     height: 100%;
     padding: 0;
@@ -135,10 +55,45 @@ input[type=submit], input[type=reset] {
 }
 
 
-/*
-fieldset {
-    border: 1px solid rgb(255,232,57);
-    width: 400px;
-    margin: auto;
+nav {
+    flex: 1;
 }
-*/
+/*search patient result grid*/
+.grid_container_parent {
+    display: grid;
+    background: #dfe3ee;
+}
+
+.flex_container_child {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+.flex_container_child:hover {
+    background-color: #BCC5DC;
+    cursor: pointer;
+}
+.no_hover:hover {
+    background-color: #dfe3ee;
+    cursor: default;
+}
+.grid_item {
+    width: 33.3%;
+    text-align: center;
+    border: 1px solid #c1c1c1;
+    padding: 1em;
+}
+.grid_item01 {
+    width: 50%;
+    text-align: center;
+    border: 1px solid #c1c1c1;
+    padding: 1em;
+}
+.results_strong {
+    padding: 1em;
+}
+/*Patient display grid*/
+.margin {
+    margin: 2em;
+}

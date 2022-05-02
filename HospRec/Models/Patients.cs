@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace HospRec.Models
@@ -20,12 +17,12 @@ namespace HospRec.Models
         //constructor
         public Patients(string connectionString) : base(connectionString) { }
         //methods
-        public void GetPatients(string firstName)
+        public void GetPatients(string firstName, string lastName)
         {    
             using (MySqlConnection conn = getConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand($"SELECT * FROM patient WHERE FirstName='{firstName}'", conn);
+                MySqlCommand cmd = new MySqlCommand($"SELECT * FROM patient WHERE FirstName='{firstName}' AND LastName='{lastName}'", conn);
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
