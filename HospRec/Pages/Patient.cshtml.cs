@@ -14,7 +14,7 @@ namespace HospRec.Pages
         public int patientID { get; set; }
         public void OnGet()
         {
-            getPatient(patientID);
+            //getPatient(patientID);
         }
     }
 }
