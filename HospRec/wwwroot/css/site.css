@@ -84,6 +84,17 @@ nav {
     border: 1px solid #c1c1c1;
     padding: 1em;
 }
+.grid_item01 {
+    width: 50%;
+    text-align: center;
+    border: 1px solid #c1c1c1;
+    padding: 1em;
+}
 .results_strong {
     padding: 1em;
 }
+/*Patient display grid*/
+.margin {
+    margin: 2em;
+}
+

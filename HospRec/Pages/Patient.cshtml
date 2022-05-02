@@ -1,8 +1,37 @@
-﻿@page "/patient"
+﻿@page "/patient/{patientID}"
 @model HospRec.Pages.PatientModel
 @{
 }
 
-<div>
-    <p>@Model.patientID</p>
+<div class="grid_container_parent margin">
+    <div class="flex_container_child">
+        <div class="grid_item01">ID:</div>
+        <div class="grid_item01">@Model.p.PatientID</div>
+    </div>
+    <div class="flex_container_child">
+        <div class="grid_item01">First Name:</div>
+        <div class="grid_item01">@Model.p.FirstName</div>
+    </div>
+    <div class="flex_container_child">
+        <div class="grid_item01">Last Name:</div>
+        <div class="grid_item01">@Model.p.LastName</div>
+    </div>
+    <div class="flex_container_child">
+        <div class="grid_item01">Ph number:</div>
+        <div class="grid_item01">@Model.p.PhNumber</div>
+    </div>
+    <div class="flex_container_child">
+        <div class="grid_item01">Email:</div>
+        <div class="grid_item01">@Model.p.Email</div>
+    </div>
+    <div class="flex_container_child">
+        <div class="grid_item01">DOB:</div>
+        <div class="grid_item01">@Model.p.DOB</div>
+    </div>
+    <div class="flex_container_child">
+        <div class="grid_item01">Gender: </div>
+        <div class="grid_item01">@Model.p.Gender</div>
+    </div>
+
+
 </div>

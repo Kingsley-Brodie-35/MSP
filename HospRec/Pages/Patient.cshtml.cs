@@ -10,11 +10,17 @@ namespace HospRec.Pages
 {
     public class PatientModel : PageModel
     {
-        [BindProperty]
-        public int patientID { get; set; }
-        public void OnGet()
+
+        public int _id;
+        public Patient p = new Patient();
+        public void OnGet(int patientID)
         {
-            //getPatient(patientID);
+            _id = patientID;
+            getPatient();
+        }
+        public void getPatient()
+        {
+            p = p.GetPatientByID(_id);
         }
     }
 }
