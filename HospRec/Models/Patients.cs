@@ -19,7 +19,7 @@ namespace HospRec.Models
         //methods
         public void GetPatients(string firstName, string lastName)
         {    
-            using (MySqlConnection conn = this.getConnection())
+            using (MySqlConnection conn = getConnection())
             {
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand($"SELECT * FROM patient WHERE FirstName='{firstName}' AND LastName='{lastName}'", conn);
@@ -30,6 +30,18 @@ namespace HospRec.Models
                         _patients.Add(new Patient(reader.GetInt32("Patient_ID"), reader.GetInt32("PhoneNumber"), reader.GetString("EmailAddress"), reader.GetString("FirstName"), reader.GetString("LastName"), reader.GetChar("Gender"), reader.GetString("DOB")) { });
                     }
                 }
+                conn.Close();
+            }
+        }
+
+        public void AddPatients(string firstname, string phonenumber, string email, string gender, string DOB) 
+        {
+            using (MySqlConnection conn = getConnection()) 
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"INSERT INTO patient (FirstName,PhoneNumber,EmailAddress,Gender,DOB) VALUES ({firstname},{phonenumber},{email},{gender},{DOB})", conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                conn.Close();
             }
         }
     }

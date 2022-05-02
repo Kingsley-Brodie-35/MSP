@@ -19,18 +19,19 @@
                 <fieldset>
                     <legend>Patient Details</legend>
                     <p>
-                        <!-- textInput first & last name -->
+                        <!-- textInput first name -->
                         <label for="firstName">First Name</label>
-                        <input type="text" name="firstName" id="firstName" size="15" required="required" />
+                        <input type="text" name="firstName" id="firstName" size="15" required="required" />                        
                     </p>
-                    <p>    
+                    <p>
+                        <!-- textInput last name -->
                         <label for="lastName">Last Name</label>
                         <input type="text" name="lastName" id="lastName" size="15" required="required" />
                     </p>
                     <p>
                         <!-- textInput phone number -->
                         <label for="phoneNum">Phone Number</label>
-                        <input type="text" name="phoneNum" id="phoneNum" pattern="[0-9]{8}" placeholder="+61" required="required" />
+                        <input type="text" name="phoneNum" id="phoneNum" pattern="[0-9]{10}" placeholder="+61" required="required" />
                     </p>
                     <p>
                         <!-- textInput email -->
@@ -39,15 +40,14 @@
                     </p>
                     <p>
                         <!-- Gender-->
-                        
                         <label for="gender">Choose your gender:</label>
                         <select name="gender" id="gender">
                             <option value="">-Select Gender-</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="O">Other</option>
                         </select>
-                     </p>
+                    </p>
                     <p>
                         <!-- date of birth -->
                         <label for="DOB">DOB</label>

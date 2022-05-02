@@ -36,7 +36,7 @@ namespace HospRec.Pages
 
         public void Query()
         {
-            Patients.GetPatients(firstName, lastName);
+            Patients.GetPatients(firstName);
         }
     }
 }
