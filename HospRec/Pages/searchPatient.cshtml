@@ -28,18 +28,24 @@
                     <input type="reset" value="Reset Form" id="reset" />
                 </p>
             </form>
-            <div>
                 <div class="grid_container_parent">
+                    <strong class="results_strong">Results</strong>
+                    <div class="flex_container_child no_hover">
+                        <div class="grid_item" ><b>ID</b></div>
+                        <div class="grid_item"><b>First Name</b></div>
+                        <div class="grid_item"><b>Last Name</b></div>
+                    </div>
                     @foreach (var p in Model.Patients.PatientList) 
                     {
-                        <div class="grid_container_child">
-                            <div class="grid_item01">@p.PatientID</div>
-                            <div grid_item01="grid_item02">@p.FirstName</div>
-                            <div grid_item01="grid_item03">@p.LastName</div>
-                        </div>
+                        <a asp-page="/patient" asp-route-patientID="@p.PatientID">
+                            <div class="flex_container_child">
+                                <div class="grid_item grid_item01">@p.PatientID</div>
+                                <div class="grid_item grid_item02">@p.FirstName</div>
+                                <div class="grid_item grid_item03">@p.LastName</div>
+                            </div>
+                        </a>
                      }
-                </div>
-            </div>
+                </div> 
         </div>
 </body>
 </html>

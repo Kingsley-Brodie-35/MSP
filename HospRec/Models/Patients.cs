@@ -20,12 +20,12 @@ namespace HospRec.Models
         //constructor
         public Patients(string connectionString) : base(connectionString) { }
         //methods
-        public void GetPatients(string firstName)
+        public void GetPatients(string firstName, string lastName)
         {    
             using (MySqlConnection conn = this.getConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand($"SELECT * FROM patient WHERE FirstName='{firstName}'", conn);
+                MySqlCommand cmd = new MySqlCommand($"SELECT * FROM patient WHERE FirstName='{firstName}' AND LastName='{lastName}'", conn);
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
