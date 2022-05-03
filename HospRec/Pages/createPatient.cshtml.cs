@@ -11,8 +11,6 @@ namespace HospRec.Pages
 {
     public class createPatientModel : PageModel
     {
-        private Patients _context = new Patients("server=hosprecdb.mysql.database.azure.com;UserID=HospRecAdmin;Password=MSPteam123;Database=hosprecdb;");
-
         [BindProperty]
         public string firstName { get; set; }
         [BindProperty]

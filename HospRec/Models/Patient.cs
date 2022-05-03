@@ -95,7 +95,7 @@ namespace HospRec.Models
         }
         public string InsertPatientData()
         {
-            ////connect and insert patient record
+            //connect and insert patient record
             using (MySqlConnection conn = this.getConnection())
             {
                 try
@@ -108,6 +108,15 @@ namespace HospRec.Models
                 {
                     return "Inavlid data entry";
                 }
+            }
+        }
+        public void UpdatePatientData(string fName, string lName, string phNum, string email, char g, string dob) { 
+            //connect and insert patient record
+            using (MySqlConnection conn = this.getConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"UPDATE patient SET FirstName='{fName}', LastName='{lName}', PhoneNumber='{phNum}', EmailAddress='{email}', Gender='{g}', DOB='{dob}' WHERE Patient_ID={this.PatientID}", conn);
+                cmd.ExecuteNonQuery();
             }
         }
     }

@@ -18,7 +18,7 @@ namespace HospRec.Models
         public Patients(string connectionString) : base(connectionString) { }
         //methods
         public void GetPatients(string firstName, string lastName)
-        {    
+        {
             using (MySqlConnection conn = getConnection())
             {
                 conn.Open();

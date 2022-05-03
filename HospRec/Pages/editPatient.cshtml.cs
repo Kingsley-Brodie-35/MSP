@@ -9,10 +9,25 @@ namespace HospRec.Pages
 {
     public class editPatientModel : PageModel
     {
-        public int _id;
+        [BindProperty]
+        public string firstName { get; set; }
+        [BindProperty]
+        public string lastname { get; set; }
+        [BindProperty]
+        public string phoneNum { get; set; }
+        [BindProperty]
+        public string email { get; set; }
+        [BindProperty]
+        public char gender { get; set; }
+        [BindProperty]
+        public string DOB { get; set; }
         public void OnGet(int patientID)
         {
-            _id = patientID;
+        
+        }
+        public void OnPost()
+        {
+
         }
     }
 }
