@@ -18,16 +18,23 @@ namespace HospRec.Pages
         [BindProperty]
         public string lastname { get; set; }
         [BindProperty]
-        public string phonenumber { get; set; }
+        public string phoneNum { get; set; }
         [BindProperty]
         public string email { get; set; }
         [BindProperty]
-        public string gender { get; set; }
+        public char gender { get; set; }
         [BindProperty]
         public string DOB { get; set; }
-        public void OnPost()
+        public long phNum { get; set; }
+        public IActionResult OnPost()
         {
-            
+            try
+            {
+                phNum = Int64.Parse(phoneNum);
+            } catch (FormatException) { }
+            Patient p = new Patient(0, phNum, email, firstName, lastname, gender, DOB);
+            p.InsertPatientData();
+            return Page();
         }
     }
 }

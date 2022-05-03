@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 
 namespace HospRec.Models
 {
@@ -6,7 +7,7 @@ namespace HospRec.Models
     {   
         //fields
         private int _patientID;
-        private int _ph;
+        private long _ph;
         private string _email;
         private string _firstName;
         private string _lastName;
@@ -34,7 +35,7 @@ namespace HospRec.Models
                 return _lastName;
             }
         }
-        public int PhNumber
+        public long PhNumber
         {
             get
             {
@@ -63,7 +64,7 @@ namespace HospRec.Models
             }
         }
         //constructor
-        public Patient(int id, int ph, string email, string firstName, string lastName, char gender, string dob) : base("server=hosprecdb.mysql.database.azure.com;UserID=HospRecAdmin;Password=MSPteam123;Database=hosprecdb;")
+        public Patient(int id, long ph, string email, string firstName, string lastName, char gender, string dob) : base("server=hosprecdb.mysql.database.azure.com;UserID=HospRecAdmin;Password=MSPteam123;Database=hosprecdb;")
         {
             _patientID = id;
             _ph = ph;
@@ -91,6 +92,16 @@ namespace HospRec.Models
                 }
             }
             return p;
+        }
+        public void InsertPatientData()
+        {
+            ////connect and insert patient record
+            using (MySqlConnection conn = this.getConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"INSERT INTO patient (PhoneNumber, EmailAddress, FirstName, Gender, DOB, LastName) VALUES ({this.PhNumber},{this.Email}, {this.FirstName}, {this.Gender}, {this.DOB}, {this.LastName})", conn);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }
