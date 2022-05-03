@@ -26,6 +26,7 @@ namespace HospRec.Pages
         [BindProperty]
         public string DOB { get; set; }
         public long phNum { get; set; }
+        public string resultMsg;
         public IActionResult OnPost()
         {
             try
@@ -33,7 +34,7 @@ namespace HospRec.Pages
                 phNum = Int64.Parse(phoneNum);
             } catch (FormatException) { }
             Patient p = new Patient(0, phNum, email, firstName, lastname, gender, DOB);
-            p.InsertPatientData();
+            resultMsg = p.InsertPatientData();
             return Page();
         }
     }

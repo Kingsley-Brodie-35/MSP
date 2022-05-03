@@ -93,14 +93,21 @@ namespace HospRec.Models
             }
             return p;
         }
-        public void InsertPatientData()
+        public string InsertPatientData()
         {
             ////connect and insert patient record
             using (MySqlConnection conn = this.getConnection())
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand($"INSERT INTO patient (PhoneNumber, EmailAddress, FirstName, Gender, DOB, LastName) VALUES ({this.PhNumber},{this.Email}, {this.FirstName}, {this.Gender}, {this.DOB}, {this.LastName})", conn);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand($"INSERT INTO patient (PhoneNumber, EmailAddress, FirstName, Gender, DOB, LastName) VALUES ({this.PhNumber}, '{this.Email}', '{this.FirstName}', '{this.Gender}', '{this.DOB}', '{this.LastName}')", conn);
+                    cmd.ExecuteNonQuery();
+                    return "success";
+                } catch (Exception e)
+                {
+                    return "Inavlid data entry";
+                }
             }
         }
     }
