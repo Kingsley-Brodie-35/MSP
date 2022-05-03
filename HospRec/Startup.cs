@@ -27,7 +27,10 @@ namespace HospRec
         public void ConfigureServices(IServiceCollection services)
         {
             services.Add(new ServiceDescriptor(typeof(DbClass), new DbClass(Configuration.GetConnectionString("DefaultConnection"))));
-            services.AddRazorPages();
+            services.AddRazorPages().AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AddPageRoute("/edit/{patientID:int?}", "/search/{patientID}/edit/{patientID}");
+            });
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

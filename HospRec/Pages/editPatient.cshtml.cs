@@ -9,8 +9,10 @@ namespace HospRec.Pages
 {
     public class editPatientModel : PageModel
     {
-        public void OnGet()
+        public int _id;
+        public void OnGet(int patientID)
         {
+            _id = patientID;
         }
     }
 }
