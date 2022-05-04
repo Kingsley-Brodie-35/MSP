@@ -16,43 +16,50 @@
 <body>
     <div>
         <!-- body contents -->
-        <form id="regForm" method="post" action="" novalidate="novalidate">
-            <fieldset>
+        <form id="regForm" method="post,get" action="" novalidate="novalidate">
+            <fieldset>                
                 <legend>Patient Details</legend>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <p>
                     <!-- textInput first name -->
                     <label for="firstName">First Name</label>
-                    <input type="text" name="firstName" id="firstName" size="15" required="required" />
+                    <input asp-for="Patient.firstName"/>
+                    <span asp-validation-for="Patient.firstName" class="text-danger"></span>
                 </p>
                 <p>
                     <!-- textInput last name -->
                     <label for="lastName">Last Name</label>
-                    <input type="text" name="lastName" id="lastName" size="15" required="required" />
+                    <input asp-for="Patient.lastName"/>
+                    <span asp-validation-for="Patient.lastName" class="text-danger"></span>
                 </p>
                 <p>
                     <!-- textInput phone number -->
-                    <label for="phoneNum">Phone Number</label>
-                    <input type="text" name="phoneNum" id="phoneNum" pattern="[0-9]{10}" placeholder="1234567890" required="required" />
+                    <label for="phoneNumber">Phone Number</label>
+                    <input asp-for="Patient.phoneNumber" placeholder="1234567890"/>
+                    <span asp-validation-for="Patient.phoneNumber" class="text-danger"></span>
                 </p>
                 <p>
                     <!-- textInput email -->
                     <label for="email">Email</label>
-                    <input type="text" name="email" id="email" required="required" />
+                    <input asp-for="Patient.email" placeholder="example@mail.com"/>
+                    <span asp-validation-for="Patient.email" class="text-danger"></span>
                 </p>
                 <p>
                     <!-- Gender-->
                     <label for="gender">Choose your gender:</label>
-                    <select name="gender" id="gender">
-                        <option value="">-Select Gender-</option>
-                        <option value="M">Male</option>
-                        <option value="F">Female</option>
-                        <option value="O">Other</option>
+                    <select asp-for="Patient.gender">
+                        <option value="-">-Select Gender-</option>
+                        <option value='M'>Male</option>
+                        <option value='F'>Female</option>
+                        <option value='O'>Other</option>
                     </select>
+                    <span asp-validation-for="Patient.gender" class="text-danger"></span>
                 </p>
                 <p>
                     <!-- date of birth -->
                     <label for="DOB">DOB</label>
-                    <input type="date" name="DOB" id="DOB" />
+                    <input asp-for="Patient.DOB" value="Patient.DOB" />
+                    <span asp-validation-for="Patient.DOB" class="text-danger"></span>
                 </p>
             </fieldset><br>
             <input type="submit" value="Create" />

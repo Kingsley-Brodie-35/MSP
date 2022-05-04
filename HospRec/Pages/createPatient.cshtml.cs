@@ -6,33 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 using HospRec.Models;
-
+using HospRec.Data;
 namespace HospRec.Pages
 {
     public class createPatientModel : PageModel
     {
         [BindProperty]
-        public string firstName { get; set; }
-        [BindProperty]
-        public string lastname { get; set; }
-        [BindProperty]
-        public string phoneNum { get; set; }
-        [BindProperty]
-        public string email { get; set; }
-        [BindProperty]
-        public char gender { get; set; }
-        [BindProperty]
-        public string DOB { get; set; }
-        public long phNum { get; set; }
+        public Patient Patient {get; set;}
+        public PatientContext PatientContext {get; set;} = new PatientContext();
         public string resultMsg;
         public IActionResult OnPost()
         {
-            try
+            if (ModelState.IsValid)
             {
-                phNum = Int64.Parse(phoneNum);
-            } catch (FormatException) { }
-            Patient p = new Patient(0, phNum, email, firstName, lastname, gender, DOB);
-            resultMsg = p.InsertPatientData();
+
+            }
+            //resultMsg = context.InsertPatientData(Patient);
             return Page();
         }
     }

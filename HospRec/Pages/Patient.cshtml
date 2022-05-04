@@ -6,31 +6,31 @@
 <div class="grid_container_parent margin">
     <div class="flex_container_child no_hover">
         <div class="grid_item01">ID:</div>
-        <div class="grid_item01">@Model.p.PatientID</div>
+        <div class="grid_item01">@Model.Patient.Id</div>
     </div>
     <div class="flex_container_child no_hover">
         <div class="grid_item01">First Name:</div>
-        <div class="grid_item01">@Model.p.FirstName</div>
+        <div class="grid_item01">@Model.Patient.firstName</div>
     </div>
     <div class="flex_container_child no_hover">
         <div class="grid_item01">Last Name:</div>
-        <div class="grid_item01">@Model.p.LastName</div>
+        <div class="grid_item01">@Model.Patient.lastName</div>
     </div>
     <div class="flex_container_child no_hover">
         <div class="grid_item01">Ph number:</div>
-        <div class="grid_item01">@Model.p.PhNumber</div>
+        <div class="grid_item01">@Model.Patient.phoneNumber</div>
     </div>
     <div class="flex_container_child no_hover">
         <div class="grid_item01">Email:</div>
-        <div class="grid_item01">@Model.p.Email</div>
-    </div>
-    <div class="flex_container_child no_hover">
-        <div class="grid_item01">DOB:</div>
-        <div class="grid_item01">@Model.p.DOB</div>
+        <div class="grid_item01">@Model.Patient.email</div>
     </div>
     <div class="flex_container_child no_hover">
         <div class="grid_item01">Gender: </div>
-        <div class="grid_item01">@Model.p.Gender</div>
+        <div class="grid_item01">@Model.Patient.gender</div>
+    </div>
+    <div class="flex_container_child no_hover">
+        <div class="grid_item01">DOB:</div>
+        <div class="grid_item01">@Model.Patient.DOB</div>
     </div>
 
 
@@ -44,42 +44,65 @@
             <p>
                 <!-- textInput first name -->
                 <label for="firstName">First Name</label>
-                <input type="text" name="firstName" id="firstName" size="15" required="required" value="@Model.p.FirstName"/>
+                <input asp-for="Patient.firstName"/>
+                <span asp-validation-for="Patient.firstName" class="text-danger"></span>
             </p>
             <p>
                 <!-- textInput last name -->
                 <label for="lastName">Last Name</label>
-                <input type="text" name="lastName" id="lastName" size="15" required="required" value="@Model.p.LastName"/>
+                <input asp-for="Patient.lastName"/>
+                <span asp-validation-for="Patient.lastName" class="text-danger"></span>
             </p>
             <p>
                 <!-- textInput phone number -->
-                <label for="phoneNum">Phone Number</label>
-                <input type="text" name="phoneNum" id="phoneNum" pattern="[0-9]{10}" placeholder="+61" required="required" value="@Model.p.PhNumber"/>
+                <label for="phoneNumber">Phone Number</label>
+                <input asp-for="Patient.phoneNumber" placeholder="1234567890"/>
+                <span asp-validation-for="Patient.phoneNumber" class="text-danger"></span>
             </p>
             <p>
                 <!-- textInput email -->
                 <label for="email">Email</label>
-                <input type="text" name="email" id="email" required="required" value="@Model.p.Email"/>
+                <input asp-for="Patient.email" placeholder="example@mail.com"/>
+                <span asp-validation-for="Patient.email" class="text-danger"></span>
             </p>
             <p>
                 <!-- Gender-->
                 <label for="gender">Choose your gender:</label>
-                <select name="gender" id="gender">
-                    <option value="">-Select Gender-</option>
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                    <option value="O">Other</option>
+                <select asp-for="Patient.gender">
+                    @switch (Model.Patient.gender)
+                    {
+                        case 'M':
+                            <option value="-">-Select Gender-</option>
+                            <option value="M" selected>Male</option>
+                            <option value="F">Female</option>
+                            <option value="O">Other</option>
+                            break;
+                        case 'F':
+                            <option value="-">-Select Gender-</option>
+                            <option value="M">Male</option>
+                            <option value="F" selected>Female</option>
+                            <option value="O">Other</option>
+                            break;
+                        case 'O':
+                            <option value="-">-Select Gender-</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="O" selected>Other</option>
+                            break;
+                        default:
+                            break;
+                    }
                 </select>
             </p>
             <p>
                 <!-- date of birth -->
                 <label for="DOB">DOB</label>
-                <input type="date" name="DOB" id="DOB" value="@Model.p.DOB"/>
+                <input asp-for="Patient.DOB" />
+                <span asp-validation-for="Patient.DOB" class="text-danger"></span>
             </p>
         </fieldset><br>
         <input type="submit" value="Edit Entry" />
         <input type="reset" value="Reset Form" id="reset"/>
     </form>
-    <p>@Model.firstName</p>
 </div>
 <h3>Patient records</h3>
