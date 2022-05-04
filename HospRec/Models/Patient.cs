@@ -26,7 +26,7 @@ namespace HospRec.Models
         public char gender {get; set;}
         [Required]        
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public string DOB {get; set;}
     }
 }

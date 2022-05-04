@@ -15,18 +15,21 @@ namespace HospRec.Pages
         [BindProperty]
         public Patient Patient {get; set;}
         private PatientContext PatientContext {get; set;} = new PatientContext();
-        //edit form values
-        //methods
         public void OnGet(string patientID)
         {
             Patient = PatientContext.GetByID(patientID);
+            @ViewData["date"] = Patient.DOB; 
         }
-        public void OnPost(string patientID)
+        public IActionResult OnPost(string patientID)
         {
-            // update patient information
-            PatientContext.UpdatePatientData(Patient);
-            // retrieve updated profile
-            Patient = PatientContext.GetByID(patientID);
+            if (ModelState.IsValid)
+            {
+                // update patient information
+                PatientContext.UpdatePatientData(Patient);
+                // retrieve updated profile
+                Patient = PatientContext.GetByID(patientID);
+            }
+            return Page();
         }
     }
 }

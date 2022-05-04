@@ -29,7 +29,7 @@ namespace HospRec.Data
                             email = reader.GetString("EmailAddress"),
                             phoneNumber = reader.GetString("PhoneNumber"),
                             gender = reader.GetChar("Gender"),
-                            DOB = reader.GetString("DOB")
+                            DOB = DateTime.Parse(reader.GetString("DOB")).ToString("yyyy-MM-dd")
                         };
                     }
                 }
@@ -56,7 +56,7 @@ namespace HospRec.Data
                             email = reader.GetString("EmailAddress"),
                             phoneNumber = reader.GetString("PhoneNumber"),
                             gender = reader.GetChar("Gender"),
-                            DOB = reader.GetString("DOB")
+                            DOB = DateTime.Parse(reader.GetString("DOB")).ToString("yyyy-MM-dd")
                         });
                     }
                 }

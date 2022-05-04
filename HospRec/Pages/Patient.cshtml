@@ -98,11 +98,12 @@
                 <!-- date of birth -->
                 <label for="DOB">DOB</label>
                 <input asp-for="Patient.DOB" />
-                <span asp-validation-for="Patient.DOB" class="text-danger"></span>
+                <span asp-validation-for="Patient.DOB" class="text-danger" value="@Model.Patient.DOB"></span>
             </p>
         </fieldset><br>
         <input type="submit" value="Edit Entry" />
         <input type="reset" value="Reset Form" id="reset"/>
     </form>
+    <p>@ViewData["date"]</p>
 </div>
 <h3>Patient records</h3>
