@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Principal
+@using System.Security.Claims
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -22,9 +25,12 @@
                             <li class="login"><a href="/login">Login</a></li>
                             @if (User.Identity.IsAuthenticated)
                             {
+                                var identity = User.Identity as ClaimsIdentity;
+                                string preferred_username = identity.Claims.FirstOrDefault(c => c.Type == "preferred_username")?.Value;
+
                                 <li class="nav-item"><a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a></li>
                                 <li class="nav-item">
-                                    <span class="navbar-text text-dark">Hello @User.Identity.Name!</span>
+                                    <span class="navbar-text text-dark">Hello @preferred_username!</span>
                                 </li>
                             }
                         </ul>
