@@ -20,6 +20,13 @@
                             <li><a href="/create">Add Patients</a></li>
                             <li><a href="/search">Search Patients</a></li>
                             <li class="login"><a href="/login">Login</a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item"><a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a></li>
+                                <li class="nav-item">
+                                    <span class="navbar-text text-dark">Hello @User.Identity.Name!</span>
+                                </li>
+                            }
                         </ul>
                     </nav>
                 </div>

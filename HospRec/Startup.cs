@@ -70,6 +70,7 @@ namespace HospRec
             services.AddRazorPages(options =>
             {
                 options.Conventions.AllowAnonymousToPage("/Index"); //Anyone can access Index page without logging in.
+                options.Conventions.AllowAnonymousToAreaPage("MicrosoftIdentity", "/Account/SignedOut");
             })
             //.AddMvcOptions(options => { }) //Useless?
             .AddMicrosoftIdentityUI();
