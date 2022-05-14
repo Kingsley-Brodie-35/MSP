@@ -37,7 +37,12 @@ namespace HospRec
             });
             //db connection
             services.Add(new ServiceDescriptor(typeof(DbClass), new DbClass(Configuration.GetConnectionString("DefaultConnection"))));
-            services.AddRazorPages().AddMicrosoftIdentityUI();
+            services.AddRazorPages(options =>
+            {
+                options.Conventions.AllowAnonymousToPage("/Index"); //Anyone can access Index page without logging in.
+            })
+            //.AddMvcOptions(options => { }) //Useless?
+            .AddMicrosoftIdentityUI();
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

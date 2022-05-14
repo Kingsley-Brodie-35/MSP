@@ -63,6 +63,10 @@ input[type=submit], input[type=reset] {
 nav {
     flex: 1;
 }
+
+.login{
+    float:right;
+}
 /*search patient result grid*/
 .grid_container_parent {
     display: grid;

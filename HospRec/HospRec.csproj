@@ -5,9 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\**" />
     <Compile Remove="wwwroot\NewFolder\**" />
+    <Content Remove="Controllers\**" />
     <Content Remove="wwwroot\NewFolder\**" />
+    <EmbeddedResource Remove="Controllers\**" />
     <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+    <None Remove="Controllers\**" />
     <None Remove="wwwroot\NewFolder\**" />
   </ItemGroup>
 
@@ -18,9 +22,25 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Identity.Web" Version="1.24.1" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.24.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="MySql.Data" Version="8.0.28" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.8" />
     <PackageReference Include="MySqlConnector" Version="2.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\lib\bootstrap\" />
+    <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
+    <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
+    <Folder Include="wwwroot\lib\jquery-validation\" />
+    <Folder Include="wwwroot\lib\jquery-validation\dist\" />
+    <Folder Include="wwwroot\lib\jquery\" />
+    <Folder Include="wwwroot\lib\jquery\dist\" />
   </ItemGroup>
 
 </Project>
