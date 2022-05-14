@@ -108,5 +108,8 @@ nav {
 }
 .nav-item {
     float: right;
-
+}
+.nav-name {
+    padding-right: 1em;
+    background: none;
 }
