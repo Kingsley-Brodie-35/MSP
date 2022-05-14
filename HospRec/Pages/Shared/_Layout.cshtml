@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Principal
+@using System.Security.Claims
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,14 +22,25 @@
                             <li><a href="/index">Home</a></li>
                             <li><a href="/create">Add Patients</a></li>
                             <li><a href="/search">Search Patients</a></li>
-                            <li class="login"><a href="/login">Login</a></li>
+                            
                             @if (User.Identity.IsAuthenticated)
                             {
-                                @*<li class="nav-item"><a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a></li>*@
-                                <li><a href="https://login.microsoftonline.com/common/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost:44382/">Sign Out</a></li>
+                                //cut user identity name to username
+                                string username = User.Identity.Name;
+                                int i = username.IndexOf("@");
+                                if (i > 0)
+                                {
+                                    username = username.Substring(0, i);
+                                }
+                                //signout and name
+                                <li class="nav-item"><a asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a></li>
                                 <li class="nav-item">
-                                    <span class="navbar-text text-dark">Hello @User.Identity.Name!</span>
+                                    <span class="navbar-text text-dark">Hello @username!</span>
                                 </li>
+                            }
+                            else
+                            {
+                                <li class="login"><a href="/login">Login</a></li>
                             }
                         </ul>
                     </nav>

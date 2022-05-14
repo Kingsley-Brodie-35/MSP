@@ -29,27 +29,6 @@ namespace HospRec
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            ////azure ad config
-            //services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme).AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
-            //services.AddControllersWithViews(options =>
-            //{
-            //    var policy = new AuthorizationPolicyBuilder()
-            //        .RequireAuthenticatedUser()
-            //        .Build();
-            //    options.Filters.Add(new AuthorizeFilter(policy));
-            //});
-            ////db connection
-            //services.Add(new ServiceDescriptor(typeof(DbClass), new DbClass(Configuration.GetConnectionString("DefaultConnection"))));
-            ////authorize accounts
-            //services.AddAuthorization(options =>
-            //{
-            //    options.AddPolicy("doctor", policyBuilder => policyBuilder.RequireClaim("groups", "8ce5badf-d1bf-48ba-8344-7dd0951102a4"));
-            //});
-            ////add razor pages
-            //services.AddRazorPages().AddMicrosoftIdentityUI();
-
-
             var initialScopes = Configuration.GetValue<string>("DownstreamApi:Scopes")?.Split(' ');
 
             services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
@@ -70,7 +49,6 @@ namespace HospRec
             services.AddRazorPages(options =>
             {
                 options.Conventions.AllowAnonymousToPage("/Index"); //Anyone can access Index page without logging in.
-                options.Conventions.AllowAnonymousToAreaPage("MicrosoftIdentity", "/Account/SignedOut");
             })
             //.AddMvcOptions(options => { }) //Useless?
             .AddMicrosoftIdentityUI();

@@ -106,3 +106,6 @@ nav {
 .margin {
     margin: 2em;
 }
+.nav-item {
+    float: right;
+}
