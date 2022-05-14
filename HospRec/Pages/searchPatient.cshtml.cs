@@ -8,9 +8,11 @@ using HospRec.Models;
 using HospRec.Data;
 using System.ComponentModel.DataAnnotations;
 using MySql.Data.MySqlClient;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HospRec.Pages
 {
+    //[Authorize("Doctor")]
     public class searchPatientModel : PageModel
     {
         // POST variables
