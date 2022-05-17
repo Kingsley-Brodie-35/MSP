@@ -1,5 +1,4 @@
 ﻿@page "/create"
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model HospRec.Pages.createPatientModel
 @{
 }
@@ -16,10 +15,9 @@
 <body>
     <div>
         <!-- body contents -->
-        <form id="regForm" method="post,get" action="" novalidate="novalidate">
+        <form id="regForm" method="post" action="" novalidate="novalidate">
             <fieldset>                
-                <legend>Patient Details</legend>
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <legend>Patient Details</legend>                
                 <p>
                     <!-- textInput first name -->
                     <label for="firstName">First Name</label>
@@ -66,6 +64,5 @@
             <input type="reset" value="Reset Form" id="reset" />
         </form>
     </div>
-    <p>@Model.resultMsg</p>
 </body>
 </html>
