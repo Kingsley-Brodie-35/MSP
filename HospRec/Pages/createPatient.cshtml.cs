@@ -15,7 +15,7 @@ namespace HospRec.Pages
         public Patient Patient {get; set;}
         public PatientContext PatientContext {get; set;} = new PatientContext();
         public string resultMsg;
-        public IActionResult OnPost()
+        public IActionResult Post()
         {
             if (ModelState.IsValid)
             {

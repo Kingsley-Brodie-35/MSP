@@ -50,7 +50,6 @@ namespace HospRec
             {
                 options.Conventions.AllowAnonymousToPage("/Index"); //Anyone can access Index page without logging in.
             })
-            //.AddMvcOptions(options => { }) //Useless?
             .AddMicrosoftIdentityUI();
         }
         

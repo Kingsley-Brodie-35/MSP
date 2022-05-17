@@ -6,6 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Security.Principal;
+using System.Security.Claims;
+
 
 namespace HospRec.Pages
 { 
@@ -20,7 +23,10 @@ namespace HospRec.Pages
 
         public void OnGet()
         {
-
+          if (User.Identity.IsAuthenticated)
+            {
+                ViewData["user"] = User.Identity.Name;
+            }
         }
     }
 }
