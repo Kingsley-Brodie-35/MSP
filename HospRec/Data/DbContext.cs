@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 namespace HospRec.Data
 {
-    public class DbClass
+    public class DBConnection
     {
         //properties
         public string ConnectionString { get; set; }
         //constructor
-        public DbClass(string connectionString)
+        public DBConnection(string connectionString)
         {
             this.ConnectionString = connectionString;
         }

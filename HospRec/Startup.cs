@@ -45,7 +45,7 @@ namespace HospRec
                 options.Filters.Add(new AuthorizeFilter(policy));
             });
             //db connection
-            services.Add(new ServiceDescriptor(typeof(DbClass), new DbClass(Configuration.GetConnectionString("DefaultConnection"))));
+            services.Add(new ServiceDescriptor(typeof(Connection), new Connection(Configuration.GetConnectionString("DefaultConnection"))));
             services.AddRazorPages(options =>
             {
                 options.Conventions.AllowAnonymousToPage("/Index"); //Anyone can access Index page without logging in.
