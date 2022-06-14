@@ -7,18 +7,15 @@ namespace HospRec.Data
 {
     public class DBConnection
     {
-        
-        string value = ConfigurationManager.AppSettings["ConnectionStrings"];
-
         //properties
         public string ConnectionString { get; set; }
-        //constructor
+        ////constructor
         public DBConnection(string connectionString)
         {
             this.ConnectionString = connectionString;
         }
         //methods
-        protected  MySqlConnection getConnection() {
+        protected MySqlConnection getConnection() {
             //ConnectionString = configuration.GetConnectionString("DefaultConnection");
             return new MySqlConnection(ConnectionString);
         }
