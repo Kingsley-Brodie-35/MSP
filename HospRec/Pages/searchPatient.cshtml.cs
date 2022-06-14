@@ -57,19 +57,25 @@ namespace HospRec.Pages
                     switch (firstName, lastName, DOB)
                     {
                         case (not null, null, null):
-                            query = $"WHERE FirstName='{firstName}'";
+                            query = $"WHERE FirstName ='{firstName}'";
                             break;
                         case (not null, not null, null):
-                            query = $"WHERE FirstName = '{firstName}' AND Lastname = '{lastName}'";
+                            query = $"WHERE FirstName = '{firstName}' AND LastName = '{lastName}'";
                             break;
                         case (not null, not null, not null):
-                            query = $"WHERE FirstName = '{firstName}' AND Lastname = '{lastName}' AND DOB = '{DOB}'";
+                            query = $"WHERE FirstName = '{firstName}' AND LastName= '{lastName}' AND DOB = '{DOB}'";
+                            break;
+                        case (null, null, not null):
+                            query = $"WHERE DOB = '{DOB}'";
                             break;
                         case (null, not null, not null):
-                            query = $"WHERE Lastname = '{lastName}' AND DOB = '{DOB}'";
+                            query = $"WHERE LastName = '{lastName}' AND DOB = '{DOB}'";
                             break;
                         case (not null, null, not null):
                             query = $"WHERE FirstName = '{firstName}' AND DOB = '{DOB}'";
+                            break;
+                        case (null, not null, null):
+                            query = $"WHERE LastName = '{lastName}'";
                             break;
                         default:
                             break;
