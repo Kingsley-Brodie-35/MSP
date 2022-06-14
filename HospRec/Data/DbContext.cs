@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System.Configuration;
+using HospRec;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace HospRec.Data
 {
     public class DBConnection
     {
+        
+        string value = ConfigurationManager.AppSettings["ConnectionStrings"];
+
         //properties
         public string ConnectionString { get; set; }
         //constructor
@@ -16,6 +19,7 @@ namespace HospRec.Data
         }
         //methods
         protected  MySqlConnection getConnection() {
+            //ConnectionString = configuration.GetConnectionString("DefaultConnection");
             return new MySqlConnection(ConnectionString);
         }
     }

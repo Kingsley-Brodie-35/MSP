@@ -8,6 +8,7 @@ namespace HospRec.Data
 {
     public class PatientContext : DBConnection
     {
+
         public PatientContext() : base("server=hosprecdb.mysql.database.azure.com;UserID=HospRecAdmin;Password=MSPteam123;Database=hosprecdb;") { }
         
         public Patient GetByID(string Id)

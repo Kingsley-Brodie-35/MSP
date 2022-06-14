@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
+using HospRec.Models;
 
 
 
@@ -45,12 +46,13 @@ namespace HospRec
                 options.Filters.Add(new AuthorizeFilter(policy));
             });
             //db connection
-            services.Add(new ServiceDescriptor(typeof(Connection), new Connection(Configuration.GetConnectionString("DefaultConnection"))));
+            services.Add(new ServiceDescriptor(typeof(DBConnection), new DBConnection(Configuration.GetConnectionString("DefaultConnection"))));
             services.AddRazorPages(options =>
             {
                 options.Conventions.AllowAnonymousToPage("/Index"); //Anyone can access Index page without logging in.
             })
             .AddMicrosoftIdentityUI();
+            
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
