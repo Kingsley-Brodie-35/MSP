@@ -12,9 +12,15 @@ namespace HospRec.Pages
     public class createPatientModel : PageModel
     {
         [BindProperty]
-        public Patient Patient {get; set;}      
-        public PatientContext PatientContext {get; set;} = new PatientContext();
+        public Patient Patient {get; set;}
+        public PatientContext PatientContext { get; set; }
         public string resultMsg;
+
+        public createPatientModel (PatientContext pc)
+        {
+            PatientContext = pc;
+        }
+
         public IActionResult Post()
         {
             if (ModelState.IsValid)

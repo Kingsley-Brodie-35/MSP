@@ -14,12 +14,21 @@ namespace HospRec.Pages
 
         [BindProperty]
         public Patient Patient {get; set;}
-        private PatientContext PatientContext {get; set;} = new PatientContext();
+        //Dependencies
+        private PatientContext PatientContext {get; set;}
+        
+        public PatientModel(PatientContext pc)
+        {
+            PatientContext = pc;
+        }
+
         public void OnGet(string patientID)
         {
             Patient = PatientContext.GetByID(patientID);
             @ViewData["date"] = Patient.DOB; 
         }
+
+
         public IActionResult OnPost(string patientID)
         {
             if (ModelState.IsValid)

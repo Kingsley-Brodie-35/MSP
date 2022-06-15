@@ -31,7 +31,7 @@ namespace HospRec
         public void ConfigureServices(IServiceCollection services)
         {
             var initialScopes = Configuration.GetValue<string>("DownstreamApi:Scopes")?.Split(' ');
-
+            //Azure AD service injkection
             services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"))
                     .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
@@ -46,7 +46,12 @@ namespace HospRec
                 options.Filters.Add(new AuthorizeFilter(policy));
             });
             //db connection
+            //Inject Patient Context Instance Service
+            services.Add(new ServiceDescriptor(typeof(PatientContext), new PatientContext(Configuration.GetConnectionString("DefaultConnection"))));
+
             services.Add(new ServiceDescriptor(typeof(DBConnection), new DBConnection(Configuration.GetConnectionString("DefaultConnection"))));
+
+
             services.AddRazorPages(options =>
             {
                 options.Conventions.AllowAnonymousToPage("/Index"); //Anyone can access Index page without logging in.
