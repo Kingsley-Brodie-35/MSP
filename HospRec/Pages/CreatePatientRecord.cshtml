@@ -1,0 +1,56 @@
+﻿@page "/createPatientRecord"
+@model HospRec.Pages.CreatePatientRecordModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Hospital Project" />
+    <meta name="Keywords" content="JS, CSS, HTML" />
+    <meta name="author" content="Group 8" />
+    <title>Add Patient</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <!-- body contents -->
+        <form id="regForm" method="post" action="" novalidate="novalidate">
+            <fieldset>
+                <legend>Patient Record</legend>
+                <p>
+                    <label for="Patient_ID">Patient ID</label>
+                    <input asp-for="PatientRecord.Patient_ID"/>
+                    @*<span asp-validation-for="Patient.firstName" class="text-danger"></span>*@
+                </p>
+                <p>
+                    <label for="Doctor_ID">Doctor ID</label>
+                    <input asp-for="PatientRecord.Doctor_ID"/>
+                    @*<span asp-validation-for="PatientRecord.Doctor_ID" class="text-danger"></span>*@
+                </p>
+                <p>
+                    <label for="Date">Date</label>
+                    <input asp-for="PatientRecord.Date" value="DateTime.now" />
+                </p>
+                <p>
+                    <label for="Symptoms">Symptoms</label>
+                    <input asp-for="PatientRecord.Symptons"/>
+                    @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
+                </p>
+                <p>
+                    <label for="Diagnosis">Diagnosis</label>
+                    <input asp-for="PatientRecord.Diagnosis"/>
+                    @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
+                </p>
+                <p>
+                    <label for="Medication">Medication</label>
+                    <input asp-for="PatientRecord.Medication" />
+                    @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
+                </p>
+            </fieldset><br>
+            <input type="submit" value="Create" />
+            <input type="reset" value="Reset Form" id="reset" />
+        </form>
+    </div>
+</body>
+</html>

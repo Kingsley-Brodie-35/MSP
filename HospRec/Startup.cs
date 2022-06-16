@@ -45,12 +45,9 @@ namespace HospRec
                     .Build();
                 options.Filters.Add(new AuthorizeFilter(policy));
             });
-            //db connection
-            //Inject Patient Context Instance Service
+            //Inject Context classes in Services
             services.Add(new ServiceDescriptor(typeof(PatientContext), new PatientContext(Configuration.GetConnectionString("DefaultConnection"))));
-
-            services.Add(new ServiceDescriptor(typeof(DBConnection), new DBConnection(Configuration.GetConnectionString("DefaultConnection"))));
-
+            services.Add(new ServiceDescriptor(typeof(PatientRecordContext), new PatientRecordContext(Configuration.GetConnectionString("DefaultConnection")))); 
 
             services.AddRazorPages(options =>
             {

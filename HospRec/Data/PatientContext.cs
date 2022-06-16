@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using HospRec.Models;
+
+
 namespace HospRec.Data
 {
     public class PatientContext : DBConnection
