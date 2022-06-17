@@ -33,10 +33,19 @@ namespace HospRec.Pages
 
         public Patient Patient {get; set;}
         public List<Patient> Patients {get; set;} = new List<Patient>();
-        private PatientContext PatientContext {get; set;} = new PatientContext();
+        private PatientContext PatientContext {get; set;}
+
+        //private DBConnection _db { get; set; }
+       
         
+        public searchPatientModel(PatientContext pc)
+        {
+            PatientContext = pc;
+        }
+
         public void OnGet()
         {
+            
         }
 
         public IActionResult OnPost()

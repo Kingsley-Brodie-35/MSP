@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using HospRec.Models;
+
+
 namespace HospRec.Data
 {
     public class PatientContext : DBConnection
     {
 
-        public PatientContext() : base("server=hosprecdb.mysql.database.azure.com;UserID=HospRecAdmin;Password=MSPteam123;Database=hosprecdb;") { }
+        public PatientContext(string connString) : base(connString) { }
         
         public Patient GetByID(string Id)
         {
