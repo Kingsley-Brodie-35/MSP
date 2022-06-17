@@ -49,7 +49,9 @@ namespace HospRec.Pages
         }
 
         public IActionResult OnPost()
-        {  
+        {
+            string viewSearchInputs= "";
+
             //Patients = context.GetByField("");
             if (ModelState.IsValid)
             {                     
@@ -58,6 +60,7 @@ namespace HospRec.Pages
                 {
                     // if given ID search check if id exists
                     Patients.Add(PatientContext.GetByID(Id));
+                    viewSearchInputs = "Id " + Id;
                 }
                 else
                 {
@@ -67,24 +70,31 @@ namespace HospRec.Pages
                     {
                         case (not null, null, null):
                             query = $"WHERE FirstName ='{firstName}'";
+                            viewSearchInputs = firstName;
                             break;
                         case (not null, not null, null):
                             query = $"WHERE FirstName = '{firstName}' AND LastName = '{lastName}'";
+                            viewSearchInputs = firstName + " " + lastName;
                             break;
                         case (not null, not null, not null):
                             query = $"WHERE FirstName = '{firstName}' AND LastName= '{lastName}' AND DOB = '{DOB}'";
+                            viewSearchInputs = firstName + " " + lastName + " " + DOB;
                             break;
                         case (null, null, not null):
                             query = $"WHERE DOB = '{DOB}'";
+                            viewSearchInputs = DOB;
                             break;
                         case (null, not null, not null):
                             query = $"WHERE LastName = '{lastName}' AND DOB = '{DOB}'";
+                            viewSearchInputs = lastName + " " + DOB;
                             break;
                         case (not null, null, not null):
                             query = $"WHERE FirstName = '{firstName}' AND DOB = '{DOB}'";
+                            viewSearchInputs = firstName + " " + DOB;
                             break;
                         case (null, not null, null):
                             query = $"WHERE LastName = '{lastName}'";
+                            viewSearchInputs = lastName;
                             break;
                         default:
                             break;
@@ -92,6 +102,16 @@ namespace HospRec.Pages
                     Patients = PatientContext.select_conditions(query);
                 }
             }
+
+            // view user search inputs
+            ViewData["filters"] = viewSearchInputs;
+
+            // clear form input
+            Id = "";
+            firstName = "";
+            lastName = "";
+            DOB = "";
+            ModelState.Clear();
             return Page();
         }
     }

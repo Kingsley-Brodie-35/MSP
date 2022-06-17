@@ -38,8 +38,16 @@
                     <span asp-validation-for="DOB" class="text-danger"></span>
                 </p>
                     <input type="submit" value="Search" />
-                    <input type="reset" value="Reset Form" id="reset" />
+                    <input type="reset" value="Clear" />
             </form>
+
+            <!-- Display user search filter inputs -->
+            <p>
+                <strong>Searching: </strong>
+                @ViewData["filters"]
+            </p>
+
+            <!-- Table of results -->
             <div class="grid_container_parent">
                 <strong class="results_strong">Results</strong>
                 <div class="flex_container_child no_hover">
@@ -58,7 +66,7 @@
                             <div class="grid_item">@p.DOB</div>
                         </div>
                     </a>
-                 }
+                }
             </div> 
         </div>
 </body>
