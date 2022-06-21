@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using HospRec.Models;
 
@@ -16,7 +17,7 @@ namespace HospRec.Data
                 try
                 {
                     conn.Open();
-                    string qry = $"INSERT INTO patient_record (Patient_ID, Doctor_ID, Date, Symptoms, Diagnosis, Medication) VALUES ('{pr.Patient_ID}', '{pr.Doctor_ID}', '{pr.Date}', '{pr.Symptons}', '{pr.Diagnosis}', '{pr.Medication}')";
+                    string qry = $"INSERT INTO patient_record (Patient_ID, Doctor_ID, Date, Symptoms, Diagnosis, Medication) VALUES ('{pr.Patient_ID}', '{pr.Doctor_ID}', '{pr.Date}', '{pr.Symptoms}', '{pr.Diagnosis}', '{pr.Medication}')";
                     MySqlCommand cmd = new MySqlCommand(qry, conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -36,6 +37,35 @@ namespace HospRec.Data
                     return "Inavlid data entry: " + e;
                 }
             }
+        }
+        // Patient Records for individual
+        public List<PatientRecord> GetByPatientId(string Id)
+        {
+            List<PatientRecord> records = new List<PatientRecord>();
+            using (MySqlConnection conn = this.getConnection())
+            {
+                conn.Open();
+                string qry = $"SELECT * FROM patient_record WHERE Patient_ID = {Id}";
+                MySqlCommand cmd = new MySqlCommand(qry, conn);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        records.Add(new PatientRecord
+                        {
+                            Record_ID = reader.GetInt32("Record_ID"),
+                            Patient_ID = reader.GetInt32("Patient_ID"),
+                            Doctor_ID = reader.GetInt32("Doctor_ID"),
+                            Date = DateTime.Parse(reader.GetString("Date")).ToString("yyyy-MM-dd"),
+                            Symptoms = reader.GetString("Symptoms"),
+                            Diagnosis = reader.GetString("Diagnosis"),
+                            Medication = reader.GetString("Medication")
+                        });
+                    }
+                }
+                conn.Close();                
+            }
+            return records;
         }
     }
 }

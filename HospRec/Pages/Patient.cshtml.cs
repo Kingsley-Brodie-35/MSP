@@ -13,29 +13,32 @@ namespace HospRec.Pages
     {
 
         [BindProperty]
-        public Patient Patient {get; set;}
+        public Patient Patient {get; set;} 
+        public List<PatientRecord> PatientRecords { get; set; } = new List<PatientRecord>();
+
         //Dependencies
         private PatientContext PatientContext {get; set;}
+        private PatientRecordContext PatientRecordContext { get; set; }
         
-        public PatientModel(PatientContext pc)
+        public PatientModel(PatientContext pc, PatientRecordContext pcc)
         {
             PatientContext = pc;
+            PatientRecordContext = pcc;
         }
 
         public void OnGet(string patientID)
         {
+            // Get Patient Details and Records
             Patient = PatientContext.GetByID(patientID);
-            @ViewData["date"] = Patient.DOB; 
+            PatientRecords = PatientRecordContext.GetByPatientId(patientID);
         }
-
 
         public IActionResult OnPost(string patientID)
         {
             if (ModelState.IsValid)
             {
-                // update patient information
+                // Update and retrieve updated details
                 PatientContext.UpdatePatientData(Patient);
-                // retrieve updated profile
                 Patient = PatientContext.GetByID(patientID);
             }
             return Page();

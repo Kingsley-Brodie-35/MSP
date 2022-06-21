@@ -17,7 +17,7 @@ namespace HospRec.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public string Date { get; set; }
-        public string Symptons { get; set; }
+        public string Symptoms { get; set; }
         public string Diagnosis { get; set; }
         public string Medication { get; set; }
 
