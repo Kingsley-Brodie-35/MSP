@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using HospRec.Models;
 
+
 namespace HospRec.Data
 {
     public class PatientRecordContext : DBConnection
@@ -9,7 +10,7 @@ namespace HospRec.Data
         public PatientRecordContext(string connString) : base(connString) { }
 
         public string InsertPatientRecord(PatientRecord pr)
-        { 
+        {
             using (MySqlConnection conn = this.getConnection())
             {
                 try
@@ -20,6 +21,15 @@ namespace HospRec.Data
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     return "Succesfully added patientRecord";
+                }
+                catch (MySqlException e)
+                {
+                    int errorCode = e.Number;
+                    if (errorCode == 1452)
+                    {
+                        return "Invalid data entry: Cannot find DoctorID or PatientID";
+                    }
+                    return "Invalid data entry: " + e;
                 }
                 catch (Exception e)
                 {

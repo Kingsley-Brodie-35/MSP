@@ -113,3 +113,6 @@ nav {
     padding-right: 1em;
     background: none;
 }
+.error {
+    color: red;
+}

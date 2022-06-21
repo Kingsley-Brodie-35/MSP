@@ -16,7 +16,6 @@ namespace HospRec.Data
         }
         //methods
         protected MySqlConnection getConnection() {
-            //ConnectionString = configuration.GetConnectionString("DefaultConnection");
             return new MySqlConnection(ConnectionString);
         }
     }

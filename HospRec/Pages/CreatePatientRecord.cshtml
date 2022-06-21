@@ -1,7 +1,6 @@
 ﻿@page "/createPatientRecord"
-@model HospRec.Pages.CreatePatientRecordModel
-@{
-}
+@model CreatePatientRecordModel
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,7 @@
 <body>
     <div>
         <!-- body contents -->
-        <form id="regForm" method="post" action="" novalidate="novalidate">
+        <form method="post" >
             <fieldset>
                 <legend>Patient Record</legend>
                 <p>
@@ -30,7 +29,7 @@
                 </p>
                 <p>
                     <label for="Date">Date</label>
-                    <input asp-for="PatientRecord.Date" value="DateTime.now" />
+                    <input asp-for="PatientRecord.Date" />
                 </p>
                 <p>
                     <label for="Symptoms">Symptoms</label>
@@ -51,6 +50,7 @@
             <input type="submit" value="Create" />
             <input type="reset" value="Reset Form" id="reset" />
         </form>
+        <p class="error">@ViewData["result"]</p>
     </div>
 </body>
 </html>

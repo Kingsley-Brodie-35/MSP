@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using HospRec.Models;
 using HospRec.Data;
+using System;
 
 namespace HospRec.Pages
 {
@@ -16,9 +17,14 @@ namespace HospRec.Pages
         {
             PatientRecordContext = prc;
         }
-
-        public IActionResult Post()
+        public void OnGet()
         {
+            
+        }
+ 
+        public IActionResult OnPost()
+        {
+            ViewData["result"] = PatientRecordContext.InsertPatientRecord(PatientRecord);
             return Page();
         }
     }
