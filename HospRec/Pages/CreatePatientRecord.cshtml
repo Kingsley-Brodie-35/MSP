@@ -20,7 +20,7 @@
                 <p>
                     <label for="Patient_ID">Patient ID</label>
                     <input asp-for="PatientRecord.Patient_ID"/>
-                    @*<span asp-validation-for="Patient.firstName" class="text-danger"></span>*@
+                    <span asp-validation-for="PatientRecord.Patient_ID" class="text-danger"></span>
                 </p>
                 <p>
                     <label for="Doctor_ID">Doctor ID</label>
@@ -33,17 +33,17 @@
                 </p>
                 <p>
                     <label for="Symptoms">Symptoms</label>
-                    <input asp-for="PatientRecord.Symptons"/>
+                    <input asp-for="PatientRecord.Symptons" required/>
                     @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
                 </p>
                 <p>
                     <label for="Diagnosis">Diagnosis</label>
-                    <input asp-for="PatientRecord.Diagnosis"/>
+                    <input asp-for="PatientRecord.Diagnosis" required/>
                     @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
                 </p>
                 <p>
                     <label for="Medication">Medication</label>
-                    <input asp-for="PatientRecord.Medication" />
+                    <input asp-for="PatientRecord.Medication" required/>
                     @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
                 </p>
             </fieldset><br>
