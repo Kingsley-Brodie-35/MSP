@@ -17,12 +17,12 @@ namespace HospRec.Pages
             PatientContext = pc;
         }
 
-        public IActionResult Post()
+        public IActionResult OnPost()
         {
-            /*if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                
-            }*/
+                ViewData["Result"] = PatientContext.InsertPatientData(Patient);
+            }
             return Page();
         }
     }

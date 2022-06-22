@@ -8,12 +8,10 @@ namespace HospRec.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        [StringLength(15, ErrorMessage = "Last name must be 15 characters long")]
-        [RegularExpression(@"[a-zA-Z]", ErrorMessage = "First name must be alphebetical")]
+        [RegularExpression(@"[a-zA-Z]+", ErrorMessage = "First name must be alphebetical")]
         public string firstName { get; set; }
         [Required]
-        [StringLength(15, ErrorMessage = "Last name must be 15 characters long")]
-        [RegularExpression(@"[a-zA-Z]", ErrorMessage = "First name must be alphebetical")]
+        [RegularExpression(@"[a-zA-Z]+", ErrorMessage = "First name must be alphebetical")]
         public string lastName { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]
