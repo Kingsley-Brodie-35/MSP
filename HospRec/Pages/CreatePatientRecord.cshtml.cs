@@ -23,11 +23,8 @@ namespace HospRec.Pages
         }
  
         public IActionResult OnPost()
-        {
-            if (ModelState.IsValid)
-            {
-                ViewData["result"] = PatientRecordContext.InsertPatientRecord(PatientRecord);
-            }
+        {            
+            ViewData["result"] = PatientRecordContext.InsertPatientRecord(PatientRecord);
             return Page();
         }
     }
