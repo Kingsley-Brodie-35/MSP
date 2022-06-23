@@ -67,5 +67,49 @@ namespace HospRec.Data
             }
             return records;
         }
+        public PatientRecord GetByID (string Id)
+        {
+            //connect and fetch patient by ID
+            PatientRecord result = new PatientRecord();
+            using (MySqlConnection conn = this.getConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"SELECT * FROM patient_record WHERE Record_ID = {Id}", conn);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        result = new PatientRecord{
+                            Record_ID = reader.GetInt32("Record_ID"),
+                            Patient_ID = reader.GetInt32("Patient_ID"),
+                            Doctor_ID = reader.GetInt32("Doctor_ID"),
+                            Date = DateTime.Parse(reader.GetString("Date")).ToString("yyyy-MM-dd"),
+                            Symptoms = reader.GetString("Symptoms"),
+                            Diagnosis = reader.GetString("Diagnosis"),
+                            Medication = reader.GetString("Medication")
+                        };
+                    }
+                }
+                conn.Close();
+            }
+            return result;
+        }
+        public string UpdateRecord(PatientRecord pr) { 
+            //connect and update patient record
+            using (MySqlConnection conn = this.getConnection())
+            {   
+                try 
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand($"UPDATE patient_record SET Doctor_ID='{pr.Doctor_ID}', Date='{pr.Date}', Symptoms='{pr.Symptoms}', Diagnosis='{pr.Diagnosis}', Medication='{pr.Medication}' WHERE Record_ID={pr.Record_ID.ToString()}", conn);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    return "Succesfuly updated patient profile";
+                } catch (Exception e)
+                {
+                    return "Unable to update profile: " + e;
+                }
+            }
+        }
     }
 }

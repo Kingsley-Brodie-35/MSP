@@ -121,7 +121,7 @@
     <!-- Resulting Rows -->
     @foreach ( var record in Model.PatientRecords)
     {
-        <a asp-page="/editPatientRecords" asp-route-patientID="@record.Patient_ID">
+        <a asp-page="/editPatientRecord" asp-route-patientRecordID="@record.Record_ID">
             <div class="flex_container_child">
                 <div class="grid_item">@record.Record_ID</div>
                 <div class="grid_item">@record.Doctor_ID</div>
