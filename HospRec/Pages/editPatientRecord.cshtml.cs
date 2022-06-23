@@ -32,7 +32,7 @@ namespace HospRec.Pages
             if (ModelState.IsValid)
             {
                 // update and retrieve updated record
-                PatientRecordContext.UpdateRecord(PatientRecord);
+                ViewData["result"] =  PatientRecordContext.UpdateRecord(PatientRecord);
                 PatientRecord = PatientRecordContext.GetByID(patientRecordID);                 
             }
             return Page();
