@@ -37,5 +37,9 @@ namespace HospRec.Pages
             }
             return Page();
         }
+        public IActionResult OnPostCancel()
+        {
+            return Redirect("/patient/" + PatientRecord.Patient_ID);
+        }
     }
 }

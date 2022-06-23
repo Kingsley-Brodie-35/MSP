@@ -40,7 +40,8 @@
             </p>
         </fieldset><br>
         <input type="submit" value="Submit" />
-        <input type="reset" value="Clear" id="reset" />        
+        <input type="reset" value="Clear" id="reset" />    
+        <input type="submit" id="cancel_form" value="Cancel" asp-page-handler="Cancel" />
     </form>
     <p class="error">@ViewData["result"]</p>
 </div>

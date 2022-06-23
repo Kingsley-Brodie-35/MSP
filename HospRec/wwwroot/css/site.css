@@ -53,6 +53,15 @@ input[type=submit], input[type=reset] {
     width: 150px;
     padding:2px 2px 2px 2px;
 }
+#cancel_form {
+    background-color: #C14242;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 150px;
+    padding: 2px;
+    float: right;
+}
 
 @media screen and (max-width: 992px) {
     .navbar {
