@@ -39,8 +39,8 @@
                 @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
             </p>
         </fieldset><br>
-        <input type="submit" value="Submit" id="btn_submit"/>
-        <input type="submit" value="Cancel" asp-page-handler="Cancel" />
+        <input type="submit" value="Submit" class="btn btn-submit"/>
+        <input type="submit" value="Cancel" class="btn" asp-page-handler="Cancel"/>
     </form>
     <p class="error">@ViewData["result"]</p>
 </div>
