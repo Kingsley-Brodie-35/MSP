@@ -6,7 +6,6 @@ body, html {
     padding: 0;
     margin: 0;
 }
-
 h1 {
     margin: 0;
 }
@@ -35,10 +34,7 @@ nav ul li a {
     color: grey;
 }
 
-label {
-    width: 350px;
-    display: inline-block
-}
+
 
 form {
     margin: auto;
@@ -47,7 +43,11 @@ form {
     border-radius: 10px;
     background: #dfe3ee;
     overflow: hidden;
-    width: fit-content;        
+}
+
+label {
+    width: 300px;
+    display: inline-block;
 }
 
 input {
@@ -57,24 +57,47 @@ input {
 input:hover {
     border: 3px solid grey;
 }
+select {
+    display: block;
+    border-radius: 10px;
+    border: 3px solid white;
+    padding: 1px 2px 1px 2px;
+    width: 100%;
+}
+select:hover {
+    border: 3px solid grey;
+}
 
-input[type=submit], input[type=reset] {
+/* btn classes */
+.btn {
+    display: none;
+    background-color: #8fa8df;
+    color: white;
+    border: none;    
+    border-radius: 10px;
+    width: 120px;
+    height: 35px;
+    padding:1px 2px 1px 2px;
+}
+.btn:hover {
     background-color: #3b5998;
+    color: white;    
+}
+.btn-submit {
+    background-color: #ce9191;
     color: white;
     border: none;
     border-radius: 10px;
-    width: 150px;
-    padding:2px;
-}
-select {
-    border-radius: 10px;
-    border: 4px white;
-    padding: 2px;
-}
-#btn_submit {
-    background-color: #C14242;
+    width: 120px;
+    height: 35px;
+    padding:1px 2px 1px 2px;
     float: right;
 }
+.btn-submit:hover {
+    background-color: #C14242;
+}
+
+
 
 @media screen and (max-width: 992px) {
     .navbar {
