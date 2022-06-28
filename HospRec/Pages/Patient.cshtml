@@ -5,69 +5,67 @@
 <h3 style="margin-top: 20px;">Patient Details</h3>
 <div class="grid_container_parent margin">
     <div class="flex_container_child no_hover">
-        <div class="grid_item01">ID:</div>
-        <div class="grid_item01">@Model.Patient.Id</div>
+        <div class="grid_item">ID:</div>
+        <div class="grid_item">@Model.Patient.Id</div>
     </div>
     <div class="flex_container_child no_hover">
-        <div class="grid_item01">First Name:</div>
-        <div class="grid_item01">@Model.Patient.firstName</div>
+        <div class="grid_item">First Name:</div>
+        <div class="grid_item">@Model.Patient.firstName</div>
     </div>
     <div class="flex_container_child no_hover">
-        <div class="grid_item01">Last Name:</div>
-        <div class="grid_item01">@Model.Patient.lastName</div>
+        <div class="grid_item">Last Name:</div>
+        <div class="grid_item">@Model.Patient.lastName</div>
     </div>
     <div class="flex_container_child no_hover">
-        <div class="grid_item01">Ph number:</div>
-        <div class="grid_item01">@Model.Patient.phoneNumber</div>
+        <div class="grid_item">Ph number:</div>
+        <div class="grid_item">@Model.Patient.phoneNumber</div>
     </div>
     <div class="flex_container_child no_hover">
-        <div class="grid_item01">Email:</div>
-        <div class="grid_item01">@Model.Patient.email</div>
+        <div class="grid_item">Email:</div>
+        <div class="grid_item">@Model.Patient.email</div>
     </div>
     <div class="flex_container_child no_hover">
-        <div class="grid_item01">Gender: </div>
-        <div class="grid_item01">@Model.Patient.gender</div>
+        <div class="grid_item">Gender: </div>
+        <div class="grid_item">@Model.Patient.gender</div>
     </div>
     <div class="flex_container_child no_hover">
-        <div class="grid_item01">DOB:</div>
-        <div class="grid_item01">@Model.Patient.DOB</div>
+        <div class="grid_item">DOB:</div>
+        <div class="grid_item">@Model.Patient.DOB</div>
     </div>
-
-
 </div>
 <h3>Edit Patient Details</h3>
 <div>
     <!-- body contents -->
-    <form id="regForm" method="post" action="" novalidate="novalidate">
+    <form id="regForm" method="post" novalidate="novalidate">
         <fieldset>
             <legend>Patient Details</legend>
             <p>
                 <!-- textInput first name -->
-                <label for="firstName">First Name</label>
+                <label for="Patient_firstName">First Name</label>
                 <input asp-for="Patient.firstName"/>
                 <span asp-validation-for="Patient.firstName" class="text-danger"></span>
             </p>
             <p>
                 <!-- textInput last name -->
-                <label for="lastName">Last Name</label>
+                <label for="Patient_lastName">Last Name</label>
                 <input asp-for="Patient.lastName"/>
                 <span asp-validation-for="Patient.lastName" class="text-danger"></span>
             </p>
             <p>
                 <!-- textInput phone number -->
-                <label for="phoneNumber">Phone Number</label>
+                <label for="Patient_phoneNumber">Phone Number</label>
                 <input asp-for="Patient.phoneNumber" placeholder="1234567890"/>
                 <span asp-validation-for="Patient.phoneNumber" class="text-danger"></span>
             </p>
             <p>
                 <!-- textInput email -->
-                <label for="email">Email</label>
+                <label for="Patient_email">Email</label>
                 <input asp-for="Patient.email" placeholder="example@mail.com"/>
                 <span asp-validation-for="Patient.email" class="text-danger"></span>
             </p>
             <p>
                 <!-- Gender-->
-                <label for="gender">Choose your gender:</label>
+                <label for="Patient_gender">Gender</label>
                 <select asp-for="Patient.gender">
                     @switch (Model.Patient.gender)
                     {
@@ -96,12 +94,12 @@
             </p>
             <p>
                 <!-- date of birth -->
-                <label for="DOB">DOB</label>
-                <input asp-for="Patient.DOB" />
-                <span asp-validation-for="Patient.DOB" class="text-danger" value="@Model.Patient.DOB"></span>
+                <label for="Patient_DOB">DOB</label>
+                <input asp-for="Patient.DOB" value="@Model.Patient.DOB"/>
+                <span asp-validation-for="Patient.DOB" class="text-danger" ></span>
             </p>
         </fieldset><br>
-        <input type="submit" value="Edit Entry" />
+        <input type="submit" value="Edit Entry" id="btn_submit"/>
         <input type="reset" value="Reset Form" id="reset"/>
     </form>
 </div>
@@ -111,7 +109,7 @@
 <div class="grid_container_parent">
     <!-- Column titles-->
     <div class="flex_container_child no_hover">
-        <div class="grid_item" ><b>ID</b></div>
+        <div class="grid_item"><b>ID</b></div>
         <div class="grid_item"><b>Doctor ID</b></div>
         <div class="grid_item"><b>Date</b></div>
         <div class="grid_item"><b>Symptoms</b></div>
