@@ -6,42 +6,41 @@
         <fieldset>
             <legend>Patient Record</legend>
             <p>
-                <label for="Record_ID">ID</label>
+                <label for="PatientRecord_Record_ID">ID</label>
                 <input asp-for="PatientRecord.Record_ID" readonly/>
             </p>
             <p>
-                <label for="Patient_ID">Patient ID</label>
+                <label for="PatientRecord_Patient_ID">Patient ID</label>
                 <input asp-for="PatientRecord.Patient_ID" readonly/>
                 <span asp-validation-for="PatientRecord.Patient_ID" class="text-danger"></span>
             </p>
             <p>
-                <label for="Doctor_ID">Doctor ID</label>
+                <label for="PatientRecord_Doctor_ID">Doctor ID</label>
                 <input asp-for="PatientRecord.Doctor_ID"/>
                 @*<span asp-validation-for="PatientRecord.Doctor_ID" class="text-danger"></span>*@
             </p>
             <p>
-                <label for="Date">Date</label>
+                <label for="PatientRecord_Date">Date</label>
                 <input asp-for="PatientRecord.Date" />
             </p>
             <p>
-                <label for="Symptoms">Symptoms</label>
+                <label for="PatientRecord_Symptoms">Symptoms</label>
                 <input asp-for="PatientRecord.Symptoms" required/>
                 @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
             </p>
             <p>
-                <label for="Diagnosis">Diagnosis</label>
+                <label for="PatientRecord_Diagnosis">Diagnosis</label>
                 <input asp-for="PatientRecord.Diagnosis" required/>
                 @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
             </p>
             <p>
-                <label for="Medication">Medication</label>
+                <label for="PatientRecord_Medication">Medication</label>
                 <input asp-for="PatientRecord.Medication" required/>
                 @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
             </p>
         </fieldset><br>
-        <input type="submit" value="Submit" />
-        <input type="reset" value="Clear" id="reset" />    
-        <input type="submit" id="cancel_form" value="Cancel" asp-page-handler="Cancel" />
+        <input type="submit" value="Submit" id="btn_submit"/>
+        <input type="submit" value="Cancel" asp-page-handler="Cancel" />
     </form>
     <p class="error">@ViewData["result"]</p>
 </div>

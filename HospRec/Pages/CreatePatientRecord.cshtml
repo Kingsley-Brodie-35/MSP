@@ -1,56 +1,43 @@
 ﻿@page "/createPatientRecord"
 @model CreatePatientRecordModel
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="description" content="Hospital Project" />
-    <meta name="Keywords" content="JS, CSS, HTML" />
-    <meta name="author" content="Group 8" />
-    <title>Add Patient</title>
-    <link href="style.css" rel="stylesheet" />
-</head>
-<body>
     <div>
         <!-- body contents -->
         <form method="post" >
             <fieldset>
                 <legend>Patient Record</legend>
                 <p>
-                    <label for="Patient_ID">Patient ID</label>
+                    <label for="PatientRecord_Patient_ID">Patient ID</label>
                     <input asp-for="PatientRecord.Patient_ID"/>
                     <span asp-validation-for="PatientRecord.Patient_ID" class="text-danger"></span>
                 </p>
                 <p>
-                    <label for="Doctor_ID">Doctor ID</label>
+                    <label for="PatientRecord_Doctor_ID">Doctor ID</label>
                     <input asp-for="PatientRecord.Doctor_ID"/>
                     @*<span asp-validation-for="PatientRecord.Doctor_ID" class="text-danger"></span>*@
                 </p>
                 <p>
-                    <label for="Date">Date</label>
+                    <label for="PatientRecord_Date">Date</label>
                     <input asp-for="PatientRecord.Date" />
                 </p>
                 <p>
-                    <label for="Symptoms">Symptoms</label>
+                    <label for="PatientRecord_Symptoms">Symptoms</label>
                     <input asp-for="PatientRecord.Symptoms" required/>
                     @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
                 </p>
                 <p>
-                    <label for="Diagnosis">Diagnosis</label>
+                    <label for="PatientRecord_Diagnosis">Diagnosis</label>
                     <input asp-for="PatientRecord.Diagnosis" required/>
                     @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
                 </p>
                 <p>
-                    <label for="Medication">Medication</label>
+                    <label for="PatientRecord_Medication">Medication</label>
                     <input asp-for="PatientRecord.Medication" required/>
                     @*<span asp-validation-for="PatientRecord.Symptons" class="text-danger"></span>*@
                 </p>
             </fieldset><br>
-            <input type="submit" value="Create" />
-            <input type="reset" value="Reset Form" id="reset" />
+            <input type="submit" value="Create" id="btn_submit"/>
+            <input type="reset" value="Reset" id="reset" />
         </form>
         <p class="error">@ViewData["result"]</p>
     </div>
-</body>
-</html>
