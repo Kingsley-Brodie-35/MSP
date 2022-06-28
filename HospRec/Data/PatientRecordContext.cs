@@ -111,35 +111,5 @@ namespace HospRec.Data
                 }
             }
         }
-        
-        public List<PatientRecord> getPatientRecords(string whereClause)
-        {
-            string qry = "SELECT patient_record.Record_ID, patient_record.Patient_ID, patient_record.Doctor_ID, patient_record.Date, patient_record.Symptoms, patient_record.Diagnosis, patient_record.Medication FROM patient_record INNER JOIN patient ON patient_record.Patient_ID = patient.Patient_ID INNER JOIN doctor ON patient_record.Doctor_ID = doctor.Doctor_ID ";
-            qry += whereClause;
-            List<PatientRecord> records = new List<PatientRecord>();
-            using (MySqlConnection conn = this.getConnection())
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(qry, conn);
-                using (MySqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        records.Add(new PatientRecord
-                        {
-                            Record_ID = reader.GetInt32("Record_ID"),
-                            Patient_ID = reader.GetInt32("Patient_ID"),
-                            Doctor_ID = reader.GetInt32("Doctor_ID"),
-                            Date = DateTime.Parse(reader.GetString("Date")).ToString("yyyy-MM-dd"),
-                            Symptoms = reader.GetString("Symptoms"),
-                            Diagnosis = reader.GetString("Diagnosis"),
-                            Medication = reader.GetString("Medication")
-                        });
-                    }
-                }
-                conn.Close();
-            }
-            return records;
-        }
     }
 }
