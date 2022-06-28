@@ -1,4 +1,3 @@
-
 * {
     font-family: sans-serif;
 }
@@ -19,6 +18,7 @@ h1 {
 }
 
 nav {
+    margin-top: 10px;
     flex: 1;
 }
 
@@ -31,35 +31,44 @@ nav ul li {
     margin-bottom: 50px;
 }
 
-form {
-    margin-top: 2em;
-    padding: 1em;
-    background: #dfe3ee;
-    border: 1px solid #c1c1c1;
-    overflow: hidden;
-}
-
 label {
     width: 350px;
     display: inline-block
+}
+
+form {
+    margin: auto;
+    margin-top: 2em;
+    padding: 1em;
+    border-radius: 10px;
+    background: #dfe3ee;
+    overflow: hidden;
+    width: fit-content;        
+}
+
+input {
+    border-radius: 10px;
+    border: 4px solid white;    
+}
+input:hover {
+    border: 4px solid grey;
 }
 
 input[type=submit], input[type=reset] {
     background-color: #3b5998;
     color: white;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 10px;
     width: 150px;
-    padding:2px 2px 2px 2px;
+    padding:2px;
 }
-#cancel_form {
-    background-color: #C14242;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    width: 150px;
+select {
+    border-radius: 10px;
+    border: 4px white;
     padding: 2px;
+}
+#btn_submit {
+    background-color: #C14242;
     float: right;
 }
 
@@ -96,13 +105,7 @@ nav {
     background-color: #dfe3ee;
     cursor: default;
 }
-.grid_item {
-    width: 33.3%;
-    text-align: center;
-    border: 1px solid #c1c1c1;
-    padding: 1em;
-}
-.grid_item01 {
+.grid_item {    
     width: 50%;
     text-align: center;
     border: 1px solid #c1c1c1;
@@ -116,7 +119,7 @@ nav {
     margin: 2em;
 }
 .nav-item {
-    float: right;
+    float:right;
 }
 .nav-name {
     padding-right: 1em;
