@@ -1,0 +1,66 @@
+﻿@page "/searchPatientRecord"
+@model HospRec.Pages.SearchPatientRecordsModel
+@{
+}
+<form method="post">
+    <strong>Search by:</strong>
+    <p>
+        <label for="Record_ID">Record ID</label>
+        <input asp-for="Record_ID" />
+        <br />
+        <label for="Patient_ID">Patient ID</label>
+        <input asp-for="Patient_ID" />
+        <br />
+        <label for="Doctor_ID">Doctor ID</label>
+        <input asp-for="Doctor_ID" />
+        <br />
+        <label for="P_First_Name">Patient First Name</label>
+        <input asp-for="P_First_Name" />
+        <br />
+        <label for="P_Last_Name">Patient Last Name</label>
+        <input asp-for="P_Last_Name" />
+        <br />
+        <label for="D_First_Name">Doctor First Name</label>
+        <input asp-for="D_First_Name" />
+        <br />
+        <label for="D_Last_Name">Doctor Last Name</label>
+        <input asp-for="D_Last_Name" />
+    </p>
+    <input type="submit" value="Search" />
+    <input type="reset" value="Clear" />
+</form>
+
+
+<div class="grid_container_parent">
+    @if (Model.Records.Count != 0)
+    {
+        <strong class="results_strong">Results</strong>
+        <div class="flex_container_child no_hover">
+            <div class="grid_item"><b>Record_ID</b></div>
+            <div class="grid_item"><b>Patient_ID</b></div>
+            <div class="grid_item"><b>Doctor_ID</b></div>
+            <div class="grid_item"><b>Date</b></div>
+            <div class="grid_item"><b>Symptoms</b></div>
+            <div class="grid_item"><b>Diagnosis</b></div>
+            <div class="grid_item"><b>Medication</b></div>  
+        </div>
+        @foreach (var r in Model.Records)
+        {
+            <a asp-page="/editPatientRecord" asp-route-patientRecordID="@r.Record_ID">
+                <div class="flex_container_child">
+                    <div class="grid_item">@r.Record_ID</div>
+                    <div class="grid_item">@r.Patient_ID</div>
+                    <div class="grid_item">@r.Doctor_ID</div>
+                    <div class="grid_item">@r.Date</div>
+                    <div class="grid_item">@r.Symptoms</div>
+                    <div class="grid_item">@r.Diagnosis</div>
+                    <div class="grid_item">@r.Medication</div>
+                </div>
+            </a>
+        }
+    }
+    else
+    {
+        <p>@ViewData["Results"]</p>
+    }
+</div>
