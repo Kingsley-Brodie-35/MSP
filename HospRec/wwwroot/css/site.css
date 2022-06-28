@@ -29,6 +29,10 @@ nav ul li {
     padding: 7px 16px;
     background-color: #f7f7f7;
     margin-bottom: 50px;
+    border-radius: 10px;
+}
+nav ul li a {
+    color: grey;
 }
 
 label {
@@ -48,10 +52,10 @@ form {
 
 input {
     border-radius: 10px;
-    border: 4px solid white;    
+    border: 3px solid white;    
 }
 input:hover {
-    border: 4px solid grey;
+    border: 3px solid grey;
 }
 
 input[type=submit], input[type=reset] {
