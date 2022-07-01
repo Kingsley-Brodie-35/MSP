@@ -5,35 +5,61 @@ body, html {
     height: 100%;
     padding: 0;
     margin: 0;
+    background-color: rgb(244, 244, 244);
 }
 h1 {
-    margin: 0;
+    margin-top: 20px;
 }
 
+header {
+    background: white;
+}
 .navbar {
+    display: flex;
+    flex-direction: row;
+    position: relative;
     width: 100%;
     margin: auto;
-    background: #dfe3ee;
+    width: 100%;
 }
-
+.navbar img {
+    padding: 1em 0 1em 1em;
+    width: 130px;
+    height: 150px;
+}
 nav {
-    margin-top: 10px;
-    flex: 1;
+    margin: auto;    
+    margin-left: 10%;
+    margin-right: 4%;
+}
+nav > ul {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding: 0;
+    align-items: center;
 }
 
 nav ul li {
-    display: inline;
-    list-style: none;
-    margin: 0 auto;
+    vertical-align: middle;
+    list-style: none;  
+}
+nav ul li a {    
+    text-decoration: none;
+    font-weight: bold;    
     padding: 7px 16px;
-    background-color: #f7f7f7;
-    margin-bottom: 50px;
+    color: #005fb2;
+}
+nav ul li a:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #005fb2;
     border-radius: 10px;
 }
-nav ul li a {
-    color: grey;
+.login {
+    order: 2;
+    margin-left: auto;
 }
-
 
 
 form {
@@ -46,13 +72,16 @@ form {
 }
 
 label {
-    width: 300px;
+    width: 110px;
     display: inline-block;
 }
 
 input {
     border-radius: 10px;
     border: 3px solid white;    
+}
+input[type=submit], input[type=reset] {
+    margin-top: 20px;
 }
 input:hover {
     border: 3px solid grey;
@@ -69,8 +98,7 @@ select:hover {
 }
 
 /* btn classes */
-.btn {
-    display: none;
+.btn, button {
     background-color: #8fa8df;
     color: white;
     border: none;    
@@ -90,14 +118,11 @@ select:hover {
     border-radius: 10px;
     width: 120px;
     height: 35px;
-    padding:1px 2px 1px 2px;
     float: right;
 }
 .btn-submit:hover {
     background-color: #C14242;
 }
-
-
 
 @media screen and (max-width: 992px) {
     .navbar {
