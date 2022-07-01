@@ -43,6 +43,8 @@ nav > ul {
 nav ul li {
     vertical-align: middle;
     list-style: none;  
+    margin-left: 2px;
+    margin-right: 2px;
 }
 nav ul li a {    
     text-decoration: none;
@@ -73,7 +75,7 @@ form {
     margin-top: 2em;
     padding: 1em;
     border-radius: 10px;
-    background: #dfe3ee;
+    background-color: white;
     overflow: hidden;
 }
 
@@ -82,15 +84,19 @@ label {
     display: inline-block;
 }
 
-input {
-    border-radius: 10px;
-    border: 3px solid white;    
-}
 input[type=submit], input[type=reset] {
     margin-top: 20px;
 }
+input {
+    border-radius: 5px;
+    border: 2px solid #dbe3e6;
+    background-color: white;
+    transition: 0.3s;    
+}
 input:hover {
-    border: 3px solid grey;
+    border-radius: 5px;
+    border: 2px solid #93aab5;
+    transition: 0.3s;    
 }
 select {
     display: block;
