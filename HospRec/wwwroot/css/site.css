@@ -56,9 +56,13 @@ nav ul li a:hover {
     background-color: #005fb2;
     border-radius: 10px;
 }
-.login {
+.login, .nav-item {
     order: 2;
     margin-left: auto;
+}
+.nav-hello-user {
+    margin-bottom: 10px;
+    padding: 2px;
 }
 
 
@@ -169,9 +173,6 @@ nav {
 /*Patient display grid*/
 .margin {
     margin: 2em;
-}
-.nav-item {
-    float:right;
 }
 .nav-name {
     padding-right: 1em;
