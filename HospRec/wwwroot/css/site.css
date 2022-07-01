@@ -49,6 +49,8 @@ nav ul li a {
     font-weight: bold;    
     padding: 7px 16px;
     color: #005fb2;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 nav ul li a:hover {
     text-decoration: none;
