@@ -18,22 +18,23 @@
                 <div class="navbar">
                     <img src="~/images/Logo.png" width="130" height="150" alt="Logo Image">
                     <nav>
-                        <ul>
-                            <li><a href="/index">Home</a></li>
-                            <li><a href="/searchPatient">Search Patients</a></li>
-                            <li><a href="/searchPatientRecord">Search Patient Records</a></li>
-                            <li><a href="/createPatient">Add Patient</a></li>
-                            <li><a href="/createPatientRecord">Add Patient Record</a></li>
-
+                        <ul class="nav-main">                                                                                                            
                             @if (User.Identity.IsAuthenticated)
                             {
-                                //cut user identity name to username
+                                // Doctor Nav bar
                                 string username = User.Identity.Name;
                                 int i = username.IndexOf("@");
                                 if (i > 0)
                                 {
                                     username = username.Substring(0, i);
                                 }
+
+                                <li><a href="/index">Home</a></li>
+                                <li><a href="/searchPatient">Search Patients</a></li>
+                                <li><a href="/searchPatientRecord">Search Patient Records</a></li>
+                                <li><a href="/createPatient">Add Patient</a></li>
+                                <li><a href="/createPatientRecord">Add Patient Record</a></li>
+
                                 //signout and name
                                 <li class="nav-item">
                                     <div class="nav-hello-user">
@@ -43,9 +44,14 @@
                                         Sign out
                                     </a>                                    
                                 </li>
+
                             }
                             else
                             {
+                                //user not login
+                                <li><a href="/index">Home</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/other">Other</a></li>
                                 <li class="login"><a asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Login</a></li>
                             }
                         </ul>
