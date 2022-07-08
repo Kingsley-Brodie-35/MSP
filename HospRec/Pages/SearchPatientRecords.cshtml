@@ -2,65 +2,78 @@
 @model HospRec.Pages.SearchPatientRecordsModel
 @{
 }
-<form method="post">
-    <strong>Search by:</strong>
-    <p>
-        <label for="Record_ID">Record ID</label>
-        <input asp-for="Record_ID" />
-        <br />
-        <label for="Patient_ID">Patient ID</label>
-        <input asp-for="Patient_ID" />
-        <br />
-        <label for="Doctor_ID">Doctor ID</label>
-        <input asp-for="Doctor_ID" />
-        <br />
-        <label for="P_First_Name">Patient First Name</label>
-        <input asp-for="P_First_Name" />
-        <br />
-        <label for="P_Last_Name">Patient Last Name</label>
-        <input asp-for="P_Last_Name" />
-        <br />
-        <label for="D_First_Name">Doctor First Name</label>
-        <input asp-for="D_First_Name" />
-        <br />
-        <label for="D_Last_Name">Doctor Last Name</label>
-        <input asp-for="D_Last_Name" />
-    </p>
-    <input type="submit" value="Search" />
-    <input type="reset" value="Clear" />
-</form>
+<div class="search-container">
+    <div class="content-search">
+        <form method="post">
+            <fieldset>
+                <legend>Search by ID</legend>
+                <label for="Record_ID">Record ID</label>
+                <input asp-for="Record_ID" />
+                <label for="Patient_ID">Patient ID</label>
+                <input asp-for="Patient_ID" />
+                <label for="Doctor_ID">Doctor ID</label>
+                <input asp-for="Doctor_ID" />
+            </fieldset>            
+            <fieldset>
+                <legend>Search by Name</legend>
+                <label for="P_First_Name">Patient First Name</label>
+                <input asp-for="P_First_Name" />
+                <label for="P_Last_Name">Patient Last Name</label>
+                <input asp-for="P_Last_Name" />
+                <label for="D_First_Name">Doctor First Name</label>
+                <input asp-for="D_First_Name" />
+                <label for="D_Last_Name">Doctor Last Name</label>
+                <input asp-for="D_Last_Name" />
+            </fieldset>
+            <input type="reset" value="Clear" class="btn"/>
+            <input type="submit" value="Search" class="btn btn-submit float-left" />            
+        </form>
+    </div> 
 
-
-<div class="grid_container_parent">
-    @if (Model.Records.Count != 0)
-    {
-        <strong class="results_strong">Results</strong>
-        <div class="flex_container_child no_hover">
-            <div class="grid_item"><b>Record_ID</b></div>
-            <div class="grid_item"><b>Patient_ID</b></div>
-            <div class="grid_item"><b>Doctor_ID</b></div>
-            <div class="grid_item"><b>Date</b></div>
-            <div class="grid_item"><b>Symptoms</b></div>
-            <div class="grid_item"><b>Diagnosis</b></div>
-            <div class="grid_item"><b>Medication</b></div>  
+    @if (Model.Records.Count != 0)    
+    {                        
+        <div class="content-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>ID</th>
+                        <th>Patient ID</th>
+                        <th>Doctor ID</th>
+                        <th>Date</th>
+                        <th>Symptoms</th>
+                        <th>Diagnosis</th>
+                        <th>Medication</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var r in Model.Records)
+                    {
+                        <tr>
+                            <td>
+                                <a asp-page="/editPatientRecord" asp-route-patientRecordID="@r.Record_ID">
+                                    More Details
+                                </a>
+                            </td>
+                            <td>@r.Record_ID</td>
+                            <td>@r.Patient_ID</td>
+                            <td>@r.Doctor_ID</td>
+                            <td>@r.Date</td>
+                            <td>@r.Symptoms</td>
+                            <td>@r.Diagnosis</td>
+                            <td>@r.Medication</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
-        @foreach (var r in Model.Records)
-        {
-            <a asp-page="/editPatientRecord" asp-route-patientRecordID="@r.Record_ID">
-                <div class="flex_container_child">
-                    <div class="grid_item">@r.Record_ID</div>
-                    <div class="grid_item">@r.Patient_ID</div>
-                    <div class="grid_item">@r.Doctor_ID</div>
-                    <div class="grid_item">@r.Date</div>
-                    <div class="grid_item">@r.Symptoms</div>
-                    <div class="grid_item">@r.Diagnosis</div>
-                    <div class="grid_item">@r.Medication</div>
-                </div>
-            </a>
-        }
-    }
-    else
-    {
-        <p>@ViewData["Results"]</p>
+    } else if (Model.Records.Count == 0) {  
+        <div class="content-table">
+            <p class="message">Results Appear Here</p>
+        </div>
+    } else {     
+        <div class="content-table">
+            <p class="message">@ViewData["Results"]</p>
+        </div>
     }
 </div>

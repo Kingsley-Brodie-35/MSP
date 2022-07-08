@@ -1,5 +1,6 @@
 * {
     font-family: sans-serif;
+    font-size: 17px;
 }
 body, html {
     height: 100%;
@@ -7,7 +8,7 @@ body, html {
     margin: 0;
     background-color: rgb(244, 244, 244);
 }
-h1 {
+h1, .h3, .h4 {
     margin-top: 20px;
 }
 
@@ -17,12 +18,11 @@ header {
 .navbar {
     display: flex;
     flex-direction: row;
-    position: relative;
     width: 100%;
     margin: auto;
-    width: 100%;
 }
 .navbar img {
+    margin-left:  2%;
     padding: 1em 0 1em 1em;
     width: 130px;
     height: 150px;
@@ -39,7 +39,7 @@ nav > ul {
     padding: 0;
     align-items: center;
 }
-
+/* Main navigation */
 nav ul li {
     vertical-align: middle;
     list-style: none;  
@@ -60,6 +60,7 @@ nav ul li a:hover {
     background-color: #005fb2;
     border-radius: 10px;
 }
+
 .login, .nav-item {
     order: 2;
     margin-left: auto;
@@ -70,22 +71,33 @@ nav ul li a:hover {
 }
 
 
-form {
+form {    
     margin: auto;
-    margin-top: 2em;
     padding: 1em;
     border-radius: 10px;
     background-color: white;
     overflow: hidden;
+    font-size: 10px;
+}
+fieldset {
+    margin-top: 10px;
+    padding: 10px 0px 10px 10px;
+}
+legend {
+    color: #378cd7;
+    font-size: 1.5em;    
 }
 
 label {
-    width: 110px;
-    display: inline-block;
+    display: block;
+    margin-top: 1em; 
+}
+label:first-of-type {
+    margin-top: 0;
 }
 
 input[type=submit], input[type=reset] {
-    margin-top: 20px;
+    margin: 10px 0px 10px 10px;
 }
 input {
     border-radius: 5px;
@@ -109,23 +121,88 @@ select:hover {
     border: 3px solid grey;
 }
 
+.search-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "search table";
+    margin-top: 20px;
+}
+.content-search {
+    border-radius: 10px;
+    width: 100%;
+    height: fit-content;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.content-table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    height: fit-content; 
+    margin-left: 20px;   
+    overflow: scroll;
+}
+.content-table thead tr {
+    background-color: #378cd7;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+    text-align: left;
+    width: 25%;
+    white-space: nowrap;
+}
+
+.content-table tr a {
+    font-weight: bold;
+    color: #378cd7;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table .message{    
+    color: #378cd7;
+    font-size: 1.5em;
+}
+.content-table p {
+    margin: 50% 0 50% 0;
+    text-align: center;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+  
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #378cd7;
+}
 /* btn classes */
 .btn, button {
-    background-color: #8fa8df;
+    background-color: #378cd7;
     color: white;
-    border: none;    
+    border: 1px solid #378cd7;    
     border-radius: 10px;
     width: 120px;
     height: 35px;
     padding:1px 2px 1px 2px;
+    font-weight: bold;
+    opacity: 70%;
 }
 .btn:hover {
-    background-color: #3b5998;
-    color: white;    
+   color: white;
+   border: 1px solid #378cd7;
+   border-radius: 10px;
+   opacity: 100%;
 }
 .btn-submit {
     background-color: #ce9191;
-    color: white;
     border: none;
     border-radius: 10px;
     width: 120px;
@@ -134,12 +211,10 @@ select:hover {
 }
 .btn-submit:hover {
     background-color: #C14242;
-}
-
-@media screen and (max-width: 992px) {
-    .navbar {
-        flex-direction: column;
-    }
+    border: none;
+    border-radius: 10px;
+    width: 120px;
+    height: 35px;
 }
 
 nav {
@@ -148,35 +223,6 @@ nav {
 
 .login{
     float:right;
-}
-/*search patient result grid*/
-.grid_container_parent {
-    display: grid;
-    background: #dfe3ee;
-}
-
-.flex_container_child {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-}
-.flex_container_child:hover {
-    background-color: #BCC5DC;
-    cursor: pointer;
-}
-.no_hover:hover {
-    background-color: #dfe3ee;
-    cursor: default;
-}
-.grid_item {    
-    width: 50%;
-    text-align: center;
-    border: 1px solid #c1c1c1;
-    padding: 1em;
-}
-.results_strong {
-    padding: 1em;
 }
 /*Patient display grid*/
 .margin {
@@ -188,4 +234,21 @@ nav {
 }
 .error {
     color: red;
+    font-weight: bold;
+    text-align: center;
+    margin: auto 0;
+    padding: 10px 10px;
+}
+
+
+@media screen and (max-width: 1315px) {
+    * {
+        font-size: 14px;
+    }
+}
+/* */
+@media screen and (max-width: 1156px) {
+    nav ul li {
+        display: none;
+    }
 }
