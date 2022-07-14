@@ -2,55 +2,42 @@
 @model HospRec.Pages.createPatientModel
 @{
 }
-    <div>
-        <!-- body contents -->
-        <form id="regForm" method="post" novalidate="novalidate">
-            <fieldset>                
-                <legend>Patient Details</legend>                
-                <p>
-                    <!-- textInput first name -->
-                    <label for="Patient_firstName">First Name</label>
-                    <input asp-for="Patient.firstName"/>
-                    <span asp-validation-for="Patient.firstName" class="text-danger"></span>
-                </p>
-                <p>
-                    <!-- textInput last name -->
-                    <label for="Patient_lastName">Last Name</label>
-                    <input asp-for="Patient.lastName"/>
-                    <span asp-validation-for="Patient.lastName" class="text-danger"></span>
-                </p>
-                <p>
-                    <!-- textInput phone number -->
-                    <label for="Patient_phoneNumber">Phone Number</label>
-                    <input asp-for="Patient.phoneNumber" placeholder="1234567890"/>
-                    <span asp-validation-for="Patient.phoneNumber" class="text-danger"></span>
-                </p>
-                <p>
-                    <!-- textInput email -->
-                    <label for="Patient_email">Email</label>
-                    <input asp-for="Patient.email" placeholder="example@mail.com"/>
-                    <span asp-validation-for="Patient.email" class="text-danger"></span>
-                </p>
-                <p>
-                    <!-- Gender-->
-                    <label for="Patient_gender">Gender:</label>
-                    <select asp-for="Patient.gender">
-                        <option value="-">-Select Gender-</option>
-                        <option value='M'>Male</option>
-                        <option value='F'>Female</option>
-                        <option value='O'>Other</option>
-                    </select>
-                    <span asp-validation-for="Patient.gender" class="text-danger"></span>
-                </p>
-                <p>
-                    <!-- date of birth -->
-                    <label for="Patient_DOB">DOB</label>
-                    <input asp-for="Patient.DOB" value="Patient.DOB" />
-                    <span asp-validation-for="Patient.DOB" class="text-danger"></span>
-                </p>
-            </fieldset><br>
-            <input type="submit" value="Create" class="btn btn-submit"/>
-            <input type="reset" value="Reset" class="btn"/>
-        </form>
-        <p>@ViewData["Result"]</p>
-    </div>
+<div class="content content-form">
+    <form id="regForm" method="post" novalidate="novalidate">
+        <fieldset>                
+            <legend>Patient Details</legend>                
+            <!-- textInput first name -->
+            <label for="Patient_firstName">First Name</label>
+            <input asp-for="Patient.firstName"/>
+            <span asp-validation-for="Patient.firstName" class="text-danger"></span>
+            <!-- textInput last name -->
+            <label for="Patient_lastName">Last Name</label>
+            <input asp-for="Patient.lastName"/>
+            <span asp-validation-for="Patient.lastName" class="text-danger"></span>
+            <!-- textInput phone number -->
+            <label for="Patient_phoneNumber">Phone Number</label>
+            <input asp-for="Patient.phoneNumber" placeholder="1234567890"/>
+            <span asp-validation-for="Patient.phoneNumber" class="text-danger"></span>
+            <!-- textInput email -->
+            <label for="Patient_email">Email</label>
+            <input asp-for="Patient.email" placeholder="example@mail.com"/>
+            <span asp-validation-for="Patient.email" class="text-danger"></span>
+            <!-- Gender-->
+            <label for="Patient_gender">Gender:</label>
+            <select asp-for="Patient.gender">
+                <option value="-">-Select Gender-</option>
+                <option value='M'>Male</option>
+                <option value='F'>Female</option>
+                <option value='O'>Other</option>
+            </select>
+            <span asp-validation-for="Patient.gender" class="text-danger"></span>
+            <!-- date of birth -->
+            <label for="Patient_DOB">DOB</label>
+            <input asp-for="Patient.DOB" value="Patient.DOB" />
+            <span asp-validation-for="Patient.DOB" class="text-danger"></span>
+        </fieldset><br>
+        <input type="submit" value="Create" class="btn btn-submit"/>
+        <input type="reset" value="Reset" class="btn"/>
+    </form>
+    <p>@ViewData["Result"]</p>
+</div>

@@ -3,8 +3,8 @@
 @{
 }
 
-<div class="search-container">
-    <div class="content-search">
+<div class="grid-col-1-3">
+    <div class="side-panel content content-form">
         <form method="post">            
             <fieldset>
                 <legend>Search by</legend>
@@ -31,7 +31,7 @@
     </div>
     @if (Model.Patients.Count != 0) 
     {
-        <div class="content-table">
+        <div class="main-panel content content-table">
             <table>
                 <thead>
                     <tr>
@@ -61,12 +61,10 @@
             </table>
         </div>
     } else if (Model.Patients.Count == 0) {
-        <div class="content-table">
-            <p class="message">Results Appear Here</p>
-        </div>
-    } else {
-        <div class="content-table">
-            <p class="message">Please enter parameters</p>
+        <div class="main-panel content">
+            <div class="content-message">
+                <p>Results Appear Here</p>
+            </div>
         </div>
     }
 </div>
