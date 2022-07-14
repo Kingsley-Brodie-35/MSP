@@ -91,12 +91,12 @@ nav ul li a:hover {
 /* Patient Info layout*/
 .info-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas: 
-        "main main second second"
-        "main main second second"
-        "third third third";
+        "main main main second second"
+        "third third third third third";
+    max-height: fit-content;
 }
 .info-container .main {
     grid-area: main;
