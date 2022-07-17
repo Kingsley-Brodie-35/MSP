@@ -28,7 +28,7 @@ namespace HospRec.Pages
 
         private PatientRecordContext PatientRecordContext;
 
-        public List<PatientRecord> Records = new List<PatientRecord>();
+        public List<PatientRecord> PatientRecords = new List<PatientRecord>();
 
         public SearchPatientRecordsModel(PatientRecordContext prc)
         {
@@ -81,8 +81,8 @@ namespace HospRec.Pages
                 return Page();
             }
             sqlWhere.TrimEnd();
-            Records = PatientRecordContext.getPatientRecords(sqlWhere);
-            if (Records.Count == 0)
+            PatientRecords = PatientRecordContext.getPatientRecords(sqlWhere);
+            if (PatientRecords.Count == 0)
             {
                 ViewData["Results"] = "No results returned";
             }

@@ -69,37 +69,7 @@
         </div>
     </div>
     <div class="third content content-table">
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Record ID</th>                    
-                    <th>Doctor ID</th>
-                    <th>Date</th>
-                    <th>Symptoms</th>
-                    <th>Diagnosis</th>
-                    <th>Medication</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var record in Model.PatientRecords)
-                {
-                    <tr>
-                        <td>
-                            <a asp-page="/editPatientRecord" asp-route-patientRecordID="@record.Record_ID">
-                                More details
-                            </a>
-                        </td>
-                        <td>@record.Record_ID</td>
-                        <td>@record.Doctor_ID</td>
-                        <td>@record.Date</td>
-                        <td>@record.Symptoms</td>
-                        <td>@record.Diagnosis</td>
-                        <td>@record.Medication</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        <partial name="~/Pages/Shared/_patientRecordTable.cshtml" model="@Model" />
     </div>
 </div>
 

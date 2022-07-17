@@ -32,33 +32,7 @@
     @if (Model.Patients.Count != 0) 
     {
         <div class="main-panel content content-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>DOB</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var p in Model.Patients)
-                    {
-                        <tr>
-                            <td>
-                                <a asp-page="/patient" asp-route-patientID="@p.Id">
-                                    More details
-                                </a>
-                            </td>
-                            <td>@p.Id</td>
-                            <td>@p.firstName</td>
-                            <td>@p.lastName</td>
-                            <td>@p.DOB</td>
-                        </tr>                        
-                    }
-                </tbody>
-            </table>
+            <partial name="~/Pages/Shared/_patientTable.cshtml" model="@Model" />
         </div>
     } else if (Model.Patients.Count == 0) {
         <div class="main-panel content">
