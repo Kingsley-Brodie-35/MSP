@@ -1,0 +1,33 @@
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>ID</th>
+            <th>Patient ID</th>
+            <th>Doctor ID</th>
+            <th>Date</th>
+            <th>Symptoms</th>
+            <th>Diagnosis</th>
+            <th>Medication</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model.PatientRecords)
+        {
+            <tr>
+                <td>
+                    <a asp-page="/editPatientRecord" asp-route-patientRecordID="@r.Record_ID">
+                        More Details
+                    </a>
+                </td>
+                <td>@r.Record_ID</td>
+                <td>@r.Patient_ID</td>
+                <td>@r.Doctor_ID</td>
+                <td>@r.Date</td>
+                <td>@r.Symptoms</td>
+                <td>@r.Diagnosis</td>
+                <td>@r.Medication</td>
+            </tr>
+        }
+    </tbody>
+</table>
