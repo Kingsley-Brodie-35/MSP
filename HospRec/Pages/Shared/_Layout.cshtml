@@ -33,29 +33,24 @@
                                 <li><a href="/dashboard">Dashboard</a></li>
 
                                 <!-- 
-                                    To do
-
-                                    1. onclick fix color to click color
-                                    2. onclick dark blue color for dropdown-content
-                                    3. fix "add" dropdow
-                                    4. centre links dropdown-content
-                                    5. fix width hover color links
-                                    6. centre dropdown-content relative to nav link
-                                    7. separate functions for search and add dropdown
+                                    . centre links dropdown-content
+                                    . fix width hover color links
+                                    . centre dropdown-content relative to nav link (optional)
+                                    . fix color on click btndrop
                                 -->
                                 <li class="dropdown">
-                                    <a onclick="myFunction()" class="dropbtn" href="#">Search</a>
-                                    <div id="myDropdown" class="dropdown-content">
+                                    <a class="dropbtn search" href="#">Search</a>
+                                    <div id="dropdown-search" class="dropdown-content">
                                         <a href="/searchPatient">Patient</a>
                                         <a href="/searchPatientRecord">Records</a>
                                     </div>
                                 </li>
 
                                 <li class="dropdown">
-                                    <a onclick="myFunction()" class="dropbtn" href="#">Add</a>
-                                    <div id="myDropdown" class="dropdown-content">
-                                        <a href="/createPatient">Add Patient</a>
-                                        <a href="/createPatientRecord">Add Patient Record</a>
+                                    <a class="dropbtn add" href="#">Add</a>
+                                    <div id="dropdown-add" class="dropdown-content">
+                                        <a href="/createPatient">Patient</a>
+                                        <a href="/createPatientRecord">Record</a>
                                     </div>
                                 </li>
 
