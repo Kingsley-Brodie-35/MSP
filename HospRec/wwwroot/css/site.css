@@ -91,6 +91,10 @@ nav ul li a:hover {
 .show {
     display: block;
 }
+.fix {
+    background-color: #005fb2;
+    color: white;
+}
 
 /* CONTATINER & LAYOUTS */
 .container {
