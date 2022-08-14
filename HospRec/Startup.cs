@@ -25,7 +25,7 @@ namespace HospRec
 
         public IConfiguration Configuration { get; }
 
-       
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -47,16 +47,16 @@ namespace HospRec
             });
             //Inject Context classes in Services
             services.Add(new ServiceDescriptor(typeof(PatientContext), new PatientContext(Configuration.GetConnectionString("DefaultConnection"))));
-            services.Add(new ServiceDescriptor(typeof(PatientRecordContext), new PatientRecordContext(Configuration.GetConnectionString("DefaultConnection")))); 
+            services.Add(new ServiceDescriptor(typeof(PatientRecordContext), new PatientRecordContext(Configuration.GetConnectionString("DefaultConnection"))));
 
             services.AddRazorPages(options =>
             {
                 options.Conventions.AllowAnonymousToPage("/Index"); //Anyone can access Index page without logging in.
             })
             .AddMicrosoftIdentityUI();
-            
+
         }
-        
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -71,7 +71,6 @@ namespace HospRec
                 app.UseHsts();
             }
 
-            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
