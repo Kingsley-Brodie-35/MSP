@@ -77,16 +77,19 @@ nav ul li a:hover {
     position: absolute;
     display: none;
     margin-top: 10px;
-    padding: 20px 10px 10px 10px;
+    padding: 5px 5px 5px 5px;
     min-height: max-content;
-    background-color: #005fb2;
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0px 3px 16px 0px rgba(0,0,0,0.2);
+    text-align: center;
 }
 .dropdown-content a {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    color: white;
+    display: block;
+    color: #005fb2;
+}
+.dropdown-content a + a{
+    margin-top: 5px;
 }
 .show {
     display: block;
