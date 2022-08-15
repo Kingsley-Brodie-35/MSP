@@ -29,44 +29,34 @@
                                     username = username.Substring(0, i);
                                 }
 
-                                <li><a href="/index">Home</a></li>
-                                <li><a href="/dashboard">Dashboard</a></li>
+                                <li><a class="nav-link" href="/index">Home</a></li>
+                                <li><a class="nav-link" href="/dashboard">Dashboard</a></li>
 
-                                <!-- 
-                                    . Even out the spacing between links in drop-content
-                                    . fix width hover color links
-                                    . centre dropdown-content relative to nav link (optional)
-                                    . fix color on click btndrop
-                                    . refactor css, js, html for better naming
-                                -->
-                                <!-- Dropdown Search -->
                                 <li class="dropdown">
-                                    <a class="dropbtn search" id="dropSearch" href="#">Search</a>
+                                    <a class="nav-link" href="#">Search</a>
                                     <div id="dropdown-search" class="dropdown-content">
-                                        <a href="/searchPatient">Patient</a>
-                                        <a href="/searchPatientRecord">Records</a>
+                                        <a class="nav-link" href="/searchPatient">Patient</a>
+                                        <a class="nav-link" href="/searchPatientRecord">Records</a>
                                     </div>
                                 </li>
 
-                                <!-- Dropdown Add -->
                                 <li class="dropdown">
-                                    <a class="dropbtn add" id="dropAdd" href="#">Add</a>
-                                    <div id="dropdown-add" class="dropdown-content">
-                                        <a href="/createPatient">Patient</a>
-                                        <a href="/createPatientRecord">Record</a>
+                                    <a class="nav-link" href="#">Add</a>
+                                    <div class="dropdown-content">
+                                        <a class="nav-link" href="/createPatient">Patient</a>
+                                        <a class="nav-link" href="/createPatientRecord">Record</a>
                                     </div>
                                 </li>
 
                                 //signout and name
-                                <li class="nav-item">
+                                <li class="nav-profile">
                                     <div class="nav-hello-user">
                                         Hello @username!    
                                     </div>
-                                    <a class="nav-signout" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">
+                                    <a class="nav-signout nav-link" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">
                                         Sign out
                                     </a>                                    
                                 </li>
-
                             }
                             else
                             {
