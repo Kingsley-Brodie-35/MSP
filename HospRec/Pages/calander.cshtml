@@ -3,4 +3,19 @@
 @{
     ViewData["Title"] = "Calander";
 }
-<h1>Calander</h1>
+<div>
+    <select id="calander-choice">
+        <option value="0">Month</option>
+        <option value="1">Week</option>
+        <option value="2">Day</option>
+    </select>
+</div>
+<h1 id="calander-context"></h1>
+<table class="calander-month">
+    <tr>
+        <td></td>
+    </tr>
+</table>
+<script>
+    document.getElementById("calander-choice").value = 0;
+</script>
