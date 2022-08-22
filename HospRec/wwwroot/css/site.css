@@ -242,6 +242,11 @@ select:hover {
     border: 3px solid grey;
 }   
 
+/* Calander */
+.calander, .calander td, .calander th {
+    border: 1px solid black;
+}
+
 
 
 /* btn classes */
