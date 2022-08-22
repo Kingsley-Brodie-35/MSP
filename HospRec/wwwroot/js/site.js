@@ -1,30 +1,31 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
+const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const d = new Date();
+// Change between Calander Modes
+document.getElementById("calander-choice").addEventListener("click", () => {
+    let choice = document.getElementById("calander-choice").value;
+    let context = document.getElementById("calander-context");
+    if (choice == 0)
+        context.textContent = month[d.getMonth()];
 
-function clearClassName(targetClass, clearClass) {
-  var dropdowns = document.getElementsByClassName(targetClass);
-      
-  for (i = 0; i < dropdowns.length; i++) {
-    var openDropdown = dropdowns[i];
-    if (openDropdown.classList.contains(clearClass)) {
-      openDropdown.classList.remove(clearClass);
-    }
+    if (choice == 1)
+        context.textContent = d.Week;
+
+    if (choice == 2)
+        context.textContent = d.Month;
+});
+
+var calanderInit = () => {
+    document.getElementById("calander-choice").value = 0;
+    document.getElementById("calander-context").textContent = month[d.getMonth()];
+};
+
+// Initialize elements
+window.addEventListener('load', (event) => {
+  // Calander
+  if (window.location.href.indexOf("/calander") > -1) {
+    calanderInit();
   }
-}
-window.onclick = function(event) {
-  if (event.target.matches('.dropbtn')) {
-    clearClassName("dropdown-content", "show"); // clear existing dropdowns on screen
-    clearClassName("dropbtn", "fix"); // clear fix colors on dropdown button
-    if (event.target.matches('.search')) {
-      document.getElementById("dropSearch").classList.toggle("fix");
-      document.getElementById("dropdown-search").classList.toggle("show");
-    }
-    if (event.target.matches('.add')) {
-      document.getElementById("dropAdd").classList.toggle("fix");
-      document.getElementById("dropdown-add").classList.toggle("show");
-    }
-  } else {
-    clearClassName("dropdown-content", "show");
-    clearClassName("dropbtn", "fix");
-  }
-}
+});
+
